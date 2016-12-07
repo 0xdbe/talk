@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Container Overview</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+            .FirstSlides{
+                width:100%;
+                background-color:rgba(0,0,0,0.5);
+                text-align: right;
+            }
+            .LeftContent{
+                width:100%;
+                text-align: right;
+            }
+    </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			
+<!-- #################### Begin ####################-->
+
+
+<section data-state="header1" data-background="img/background.jpg">
+  <!--   http://fr.123rf.com/photo_17456316_image-de-conteneurs-gris-dans-la-ligne.html?term=container&vti=nzttgvnbcyztw0rf3a -->
+  <!--   Droit d'auteur: <a href='http://fr.123rf.com/profile_3dmentat'>3dmentat / 123RF Banque d'images</a> -->
+  <div class="FirstSlides">
+    <h1>Container Overview</h1>
+    <h4>December 9<span class="ordinal">th</span>, 2016</h4>
+    <p><small>By Didier BERNAUDEAU</small></p>
+  </div>
+  <aside class="notes">
+    <p>- Cette présentation est un aperçu très rapide des Container (principale sous linux)</p>
+    <p>- C’est une technologie est déjà adoptée par de nombreuses sociétés (Google, Netflix, Amazon, …)</p>
+    <p>- ou, pour les retardataires, un projet de transformation IT est en cours pour l’adopter.</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Keyboard Shortcuts</h2>
+  <table>
+    <tr>
+      <td><b>Full Screen</b></td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td><b>Next Slide</b></td>
+      <td>Space bar</td>
+    </tr>
+    <tr>
+      <td><b>Slide Notes</b></td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td><b>Thumbnail View</b></td>
+      <td>Esc</td>
+    </tr>
+  </table>
+  <p><small>View online at <a href="http://0xdbe.github.io/ContainerOverview_20161209">http://0xdbe.github.io/ContainerOverview_20161209</a></small></p>
+  <aside class="notes">
+    <p>- Cette présentation est disponible sur github</p>
+    <p>- Vous pourrez donc la voir et la revoir</p>
+    <p>- Pour ceux qui ne serait pas familiarisé avec Reveal JS, voici les principaux raccourci clavier</p>
+  </aside>
+</section>
+
+<section>
+  <h2>What is a container?</h2>
+  <br/>
+  <ul>
+    <span class="fragment fade-in">
+      <li>Lightweight VM</li>
+    </span>
+    <br/>
+    <span class="fragment fade-in">
+      <li>Chroot on steroids</li>
+    </span>
+  </ul>
+  <aside class="notes">
+    <p> - Il y a deux approches.</p>
+    <p> - Un container, c’est comme une machine virutelle allégée.</p>
+    <p> - Mais un container c’est qu’un chroot amélioré…</p>
+  </aside>
+</section>
+
+<section>
+  <h2>How does it work?</h2>
+  <aside class="notes">
+    <p> - Mais concrètement, comment cela fonctionne ?</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Kernel features for Container</h2>
+  <br/>
+  <ul>
+    <li><b>Control Groups (Cgroups)</b> is a kernel feature to limit and account the resource usage for a set of processes.</li>
+    <br/>
+    <span class="fragment fade-in">
+      <li><b>Name Spaces</b> is a kernel feature to isolate and virtualize system resources of a collection of processes.</li>
+    </span>
+    <br/>   
+    <span class="fragment fade-in">
+      <li><b>seccomp (Secure Computing)</b> is a kernel feature intruduce by Google to filter syscalls issued by a program.</li>
+    </span>
+  </ul>
+  <aside class="notes">
+    <p> - Il y a tout d’abord des fonctionnalités au niveau du noyau linux.</p>
+    <p> - Control Groups: Elle permet de limiter l’utilisation du matériel (comme la mémoire) et d’en mesurer la consommation réelle.</p>
+    <p> - NameSpace est une fonctionnalité qui permet de donner une « vue » limitée du système à un processus. (Example avec UID)</p>
+    <p>Une autre fonctionnalité importante est le Secure Computing (Firewall permettant de filtrer les appels systeme pour un processus.)</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Container Runtime</h2>
+  <p>Run processes in isolated environments (Container)</p>
+  <p>Providing APIs and tooling that abstract kernel features</p>
+  <br/>
+  <img src="img/ContainerEngine.png"/>
+  <aside class="notes">
+    <p>- Le Container Runtime est une application qui permet d’éxécuter des processus dans un environnement isolé que nous appelerons « Container ».</p>
+    <p> - Il y a un inconvénient, un Container Runtime fonctionne sur un seul host. Inacceptable en entreprise !!</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Container Cluster Manager</h2>
+  <p>Allow multi-host container runtime</p>
+  <p>Provide high availability and auto scaling</p>
+  <img src="img/ContainerCluster.png"/>
+  <aside class="notes">
+    <p> - C’est ainsi que sont apparu les container cluster manager.</p>
+    <p> - Ils offrent une solution pour la haute disponibilité et l’auto scalling.</p>
+    <p> - Noeud : swarm & kubernete</p>
+    <p> - Cluster: Mesos</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Container Image</h2>
+  <p>Image references a list of read-only layers</p>
+  <img src="img/ContainerImageLayer.png"/ style="border:0px;" >
+  <span class="fragment fade-in">
+    <p>Copy-on-write strategy allows to optimize resources</p>
+  </span>
+  <span class="fragment fade-in">
+    <p style='color:red;'><small>Business data is never store in the container image (cf. Flocker)</small></p>
+  </span>
+  <aside class="notes">
+    <p>Une image est composée de différentes couches accessibles en lecture seule par le container</p>
+    <p>Le concept « copy on write » permet de partager les images entre plusieurs container.</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Security Challenge</h2>
+    <ul>
+        <li>Secure Container</li>
+        <ul>
+          <small>
+          <li>Container hardening (AppArmor / SeLinux, ...)</li>
+          <li>Container encryption</li>
+          </small>
+        </ul>
+        <br/>
+      <li>Secure Container hosts</li>
+        <ul>
+          <small>
+          <li>Plateform hardening (Seccomp BPF, ...)</li>
+          <li>Prevent container evasion</li>
+          </small>
+        </ul>
+        <br/>
+      <li>Secure container management tools</li>
+        <ul>
+          <small>
+          <li>Two-factor authentication</li>
+          <li>Least privilege</li>
+          </small>
+        </ul>
+    <ul>
+</section>
+
+<section>
+  <h1>Appendix</h1>
+</section>
+
+<section>
+  <h2>Sources</h2>
+  <small>
+  <ul>
+    <li>Web sites</li>
+      <ul>
+        <li><a href="https://www.opencontainers.org/">Open Containers Initiative</a></li>
+        <li><a href="https://github.com/appc">App Container Specification and Tooling</a></li>
+      </ul>
+    <br>
+    <li>Articles</li>
+      <ul>
+        <li><a href="https://lwn.net/Articles/531114/">Namespaces overview.</a> (Michael Kerrisk - January 04, 2013)</li>
+        <li><a href="https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces">A Tutorial for Isolating Your System with Linux Namespaces</a> (Mahmud Ridwan - 2014)</li>
+        <li><a href="https://blog.appdynamics.com/devops/4-cluster-management-tools-to-compare/">4 Cluster Management Tools to Compare</a> (Anand Akela - May 05, 2016</li>
+        <li><a href="https://getcarina.com/docs/best-practices/container-technologies-orchestration-clusters/">Introduction to container technologies: orchestration and management of container clusters</a> (Mike Metral - October 18, 2015)</li>
+        </ul>
+    <br>
+    <li>Slides</li>
+      <ul>
+        <li><a href="http://www.slideshare.net/jpetazzo/anatomy-of-a-container-namespaces-cgroups-some-filesystem-magic-linuxcon">Anatomy of a Container</a> (Jérôme Petazzoni - August 19, 2015)</li>
+        <li><a href="http://www.slideshare.net/kerneltlv/namespaces-and-cgroups-the-basis-of-linux-containers">Namespaces and cgroups - the basis of Linux containers</a> (Rami Rosen - March 16, 2016)</li>
+      </ul>
+    <br>
+    <li>Video</li>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=sK5i-N34im8">Cgroups, namespaces, and beyond: what are containers made from?</a> (Jérôme Petazzoni - December 3, 2015)</li>
+      </ul>
+    <br>
+    <li>Audio</li>
+      <ul>
+        <li><a href="https://softwareengineeringdaily.com/2016/09/26/container-security-with-phil-estes/">Container Security</a> (Phil Estes - September 26, 2016)</li>
+      </ul>
+    </ul>
+  </small>
+</section>
+
+<section>
+  <h2>NameSpaces</h2>
+    <small>
+    <table>
+        <tr>
+            <td><b>PID</b></td>
+            <td>Isolate the process ID number space (PID1000 = PID1)</td>
+        </tr>
+        <tr>
+            <td><b>IPC</b></td>
+            <td>isolate certain interprocess communication</td>
+        </tr>
+        <tr>
+            <td><b>Mount</b></td>
+            <td>isolate the set of filesystem mount points seen by a group of processes</td>
+        </tr>
+        <tr>
+            <td><b>Network</b></td>
+            <td>each network namespace has its own network devices, IP addresses, IP routing tables, ...</td>
+        </tr>
+        <tr>
+            <td><b>UTS</b></td>
+            <td>allows each container to have its own hostname</td>
+        </tr>
+        <tr>
+            <td><b>User</b></td>
+            <td>allow a process to have root privileges inside the container, while at the same time being a normal unprivileged process on the system (UID 1000 = UID0)</td>
+        </tr>
+    </table>
+    </small>
+</section>
+
+
+<!-- #################### END ####################-->
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				slideNumber: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			Reveal.configure({ slideNumber: 'c/t' });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+http://soat.developpez.com/tutoriels/eclipse/presentation-eclipse-che-ide-cloud/
+http://blog.soat.fr/2015/05/eclipse-che-un-ide-sur-le-cloud/
+https://hub.docker.com/r/codenvy/che/
+
+Sécurité :
+  https://eclipse-che.readme.io/docs/config-security  => pas d'authentification et pas de chiffrement
+
+alternative:
+  http://download.eclipse.org/orion/drops/R-13.0-201612211429/index.html
+
+
+
+
+
+HowTo :
+  docker pull codenvy/che
+
+  
+http://www.eclipse.org/ecd/
+  che = Orion + autre
+  
+  
+Eclipse Orion: The IDE in the Clouds
+
+  Jetty / OSGi / Equinox Java server (API RESTfull) for the plugin
+  Orion Client NodeJS
+  https://www.youtube.com/watch?v=-oLEBava6FU
+  https://www.youtube.com/watch?v=5KwRGn07pGI
+  https://orionhub.org
+  
+  Orion in docker: => https://www.youtube.com/watch?v=lX-4ftWzK3s (13mn)
+  
+  
+########################################
+
+Component & Framework
+
+  Equinox Container
+  Joran Logback (alternative à Log4j) => ch.qos.logback.core.* => http://logback.qos.ch/
+  osgi.framework=file\:plugins/org.eclipse.osgi_3.10.0.v20140606-1445.jar
+  
+Software stack
+
+Security Attention point
+

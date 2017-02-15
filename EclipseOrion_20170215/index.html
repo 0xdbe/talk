@@ -13,15 +13,17 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<style>
-            .FirstSlides{
-                width:100%;
-                background-color:rgba(0,0,0,0.5);
-                text-align: right;
-            }
-            .LeftContent{
-                width:100%;
-                text-align: right;
-            }
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        width:100%;
+        top:35%;
+        background-color:rgba(0,0,0,0.5);
+        text-align: right;
+      }
     </style>
 
 		<!-- Printing and PDF exports -->
@@ -43,9 +45,11 @@
 
 <section data-state="header1" data-background="img/background.jpg">
   <div class="FirstSlides">
-    <h1>Eclipse Orion</h1>
-    <h4>February 15<span class="ordinal">th</span>, 2017</h4>
-    <p><small>By Didier BERNAUDEAU</small></p>
+    <div class="Title">
+      <h1>Eclipse Orion</h1>
+      <h4>February 15<span class="ordinal">th</span>, 2017</h4>
+      <p><small>By Didier BERNAUDEAU</small></p>
+    </div>
   </div>
   <aside class="notes">
     <p>...</p>
@@ -54,7 +58,7 @@
 
 <section>
   <p>View online at <a href="https://0xdbe.github.io/EclipseOrion_20170215">https://git.io/vDPMP</a></p>
-  <br/>
+  
   <p>Keyboard Shortcuts</p>
   <small>
   <table>

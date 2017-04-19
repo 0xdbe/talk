@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Container Security Scanner</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        left:0%;
+        width:100%;
+        top:40%;
+        background-color:rgba(33,18,49,0.5);
+        text-align: right;
+      }
+    </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			
+<!-- #################### Begin ####################-->
+
+
+<section data-state="header1" data-background="img/background.jpg">
+<!--   Droit d'auteur: <a href='http://fr.123rf.com/profile_3dmentat'>3dmentat / 123RF Banque d'images</a> -->
+<div class="FirstSlides">
+    <div class="Title">
+      <h1>Container Security Scanner</h1>
+      <h4>April 20<span class="ordinal">th</span>, 2017</h4>
+      <p><small>By Didier BERNAUDEAU</small></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p>View online at <a href="http://0xdbe.github.io/ContainerSecurityScanner_20170420">https://git.io/XXXX</a></p>
+  
+  <small>
+  <p><b>Keyboard Shortcuts</b></p>
+  <table>
+    <tr>
+      <td><b>Full Screen</b></td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td><b>Next Slide</b></td>
+      <td>Space bar</td>
+    </tr>
+    <tr>
+      <td><b>Slide Notes</b></td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td><b>Thumbnail View</b></td>
+      <td>Esc</td>
+    </tr>
+  </table>
+  </small>
+</section>
+
+<section>
+  <h2>Container Image Layer</h2>
+  OS
+  Middleware
+  application
+  <aside class="notes">
+    Build, Ship, and Run Any App, Anywhere
+  </aside>
+</section>
+
+<section>
+  <h2>Vulnerabilities in a Container Image</h2>
+  <table>
+  <tr>
+    <td><img src="img/Heartbleed.svg" style="width:150px; border:0px;  "></td>
+    <td style="vertical-align:middle;"><span class="fragment fade-in">Heartbleed</span></td>
+  </tr>
+  <tr>
+    <td><img src="img/Shellshock-bug.png" style="width:150px; border:0px;  "></td>
+    <td style="vertical-align:middle;"><span class="fragment fade-in">Shellshock</span></td>
+  </tr>
+  <tr>
+    <td><img src="img/ghost-vulnerability.png" style="width:150px; border:0px;  "></td>
+    <td style="vertical-align:middle;"><span class="fragment fade-in">Ghost (GLibC)<span></td>
+  </tr>
+  </table>
+</section>
+
+<section>
+  <p>Frequently Asked Questions:</p>
+  <br>
+  <ul>
+    <li>How many vulnerabilities affect a new containerized application?</li>
+    <br>
+    <li>How many of your containerized applications are concerned by this new vulnerability? </li>
+  </ul>
+  <br><br>
+  <span class="fragment fade-in">
+  <p>... often without answers</p>
+  <span>
+</section>
+
+<section>
+  <h2>Container Security Scanner</h2>
+  <br>
+  <ul>
+    <li>Docker Security Scanning (by Docker on Docker Hub)</li>
+    <br>
+    <li>Vulnerability Advisor (by IBM for BlueMix)</li>
+    <br>
+    <li>OpenSCAP and Atomic Scan (by RedHat for OpenShift)</li>
+    <br>
+    <li class="fragment highlight-red">Clair (by CoreOS and used by Quay.io)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Clair by CoreOS</h2>
+  
+  <ul>
+    <li>Perform static analysis</li>
+    <br>
+    <li>Index container images only once (dpkg or rpm)</li>
+    <br>
+    <li>Collect vulnerability data from Linux distribution (OVAL)</li>
+    <br>
+    <li>Send notification to container repository <br>(or other software in the development pipeline)</li>
+  <ul>
+  </ul>
+  <aside class="notes">
+    <p> - Static Analysis: dynamic analysis is expensive and unsafe</p>
+    <p> - Only once: extract and store enought to inform about known and future vulnerabilities</p>
+    <p> - Notification: webhook</p>
+  </aside>
+</section>
+
+<section data-state="header1" data-background="img/QuayVulnerabilitiesView.png">
+  <aside class="notes">
+    <p>Example of dashboard on Quay repository (https://quay.io/repository/coreos/clair)</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Sources</h2>
+
+  <ul>
+    <li><a href="https://github.com/coreos/clair">CoreOS Clair on Github</a></li>
+    <li><a href="https://thenewstack.io/draft-vulnerability-scanners/">TNS Research: A Scan of the Container Vulnerability Scanner Landscape</a></li>
+    <li><a href="https://www.slideshare.net/CoreOS_Slides/clair-a-container-image-security-analyzer-61197704">Clair, A Container Image Security Analyzer</a></li>
+  </ul>
+
+</section>
+
+
+<!-- #################### END ####################-->
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				slideNumber: true,
+        width: 1280,
+        height: 720,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			Reveal.configure({ slideNumber: 'c/t' });
+		</script>
+	</body>
+</html>

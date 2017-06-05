@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Modern Presentation with RevealJS</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+        <section>
+          <h1>Modern Presentation with RevealJS</h1>
+          <aside class="notes">
+          blabla ...
+          </aside>
+        </section>
+        
+        <section>
+          <h2>Classic Software to create presentation</h2>
+          <ul>
+            <li>Microsoft Power Point</li>
+            <li>Libre Office - Impress</li>
+            <li>Beamer / Latex</li>
+            <li>Prezi</li>
+            <li>Google Docs</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>... Presentation framework</h2>
+          <ul>
+            <li>DeckJS</li>
+            <li>ImpressJS</li>
+            <li class="fragment highlight-red">RevealJS</li>
+            <li>...</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>RevealJS (Standalone)</h2>
+          <br>
+          <pre><code data-trim data-noescape>
+          $ git clone https://github.com/hakimel/reveal.js.git
+          </code></pre>
+          <br>
+          <p>...then, edit index.html file to add content</p>
+        </section>
+        
+        <section>
+          <h2>RevealJS (NodeJS)</h2>
+          <p>Install RevealJS</p>
+          <pre><code data-trim data-noescape>
+          npm i node-reveal -g
+          </code></pre>
+          <span class="fragment fade-in">
+          <p>Init your presentation</p>
+          <pre><code data-trim data-noescape>
+          reveal -i <project_name>
+          </code></pre>
+          </span>
+          <span class="fragment fade-in">
+          <p>start your presentation</p>
+          <pre><code data-trim data-noescape>
+          reveal -w
+          </code></pre>
+          </span>
+        </section>
+        
+        <section>
+          <h2>Advanced features</h2>
+          <ul>
+            <li>Auto reload during editing</li>
+            <li><a href="http://localhost:3000/?print-pdf#/">PDF export</a></li>
+            <li><a href="http://localhost:3000/?role=master#/">Enable multiplex in an elegant way</a></li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Hosting your presentation</h2>
+          <ul>
+          <li>GitHub Page</li>
+          <li><a href="https://fr.slideshare.net">Slideshare</li>
+          <li><a href="https://slides.com/">Slides</li>
+          <li>Amazon S3</li>
+          </ul>
+        </section>
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        multiplex: {
+          secret: '14955412494397033973',
+          id: 'ad658e394b7fdab4',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

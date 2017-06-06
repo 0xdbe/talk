@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Front-End Development</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Custom style for First Slide -->
+    <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:2%;
+        width:70%;
+        top:20%;
+        background-color:rgba(46,89,82,0.5);
+        text-align: right;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section data-state="header1" data-background="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>Front-End Development</h1>
+              <h4>June 6<span class="ordinal">th</span>, 2017</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+          <aside class="notes">
+            <p>...</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h3>Software architecture</h3>
+          <p>The components of a modern websites are:</p>
+          <ul>
+            <li>Front-End (Client side)</li>
+            <br>
+            <li>Back-End (Server side)</li>
+          </ul>
+          <br><br>
+          <small class="fragment fade-in"><b>Full Stack developer:</b> someone who is able to work on both the front-end and back-end component</small>
+          <aside class="notes">
+            <ul>
+            <li><b>Front-End</b> est un composant qui s'exécutera dans le navigateur de l'utilisateur</li>
+            <li><b>Back-end</b> est ensemble de composants qui s'exécutent sur les serveurs (Généralement REST API)</li>
+            <li><b>Full stack:</b> difficile d'avoir les compétences dans les 2 domaines.</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+          <h3>Front-End component</h3>
+          <br>
+          <ul>
+            <li>SPA (Single Page Application)</li>
+            <li>Set of files (HTML, CSS and JS)</li>
+            <li>Responsive design (Desktop and mobile)</li>
+          </ul>
+          <br><br>
+          <p class="fragment fade-in">Building an SPA is becoming increasingly difficult !</p>
+          <aside class="notes">
+            <ul>
+              <li>SPA : Qui connais ? Et le contraire => MPA (Multi Page Application)</li>
+              <li>Retour des RIA (Rich internet application) que nous avons connu avec Flash ou encore les applets Java</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+          <h3>How to develop your SPA?</h3>
+          <ul>
+            <li>with a native browser language compliant with ECMAScript</li>
+            <ul>
+              <li>Javascript</li>
+              <li>ActiveX</li>
+              <li>Action Script</li>
+              <li>...</li>
+            </ul>
+            <li>With a basic framework (JQuery, RxJS, Promise, ...)</li>
+            <li>With an advanced framework (Angular, ...)</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>"simple" et "advanced" sont des termes personnels pour distinguer la différence entre les 2 types de framework</li>
+              <li>Evolution : 1999 = JavaScript / 2005 = simple framework / 2010 : advanced framework</li>
+              <li>Chaque niveau s'appuie sur le précédent</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+          <h3>What's an advanced framework such as Angular?</h3>
+          
+          <ul>
+            <li>A software design pattern (MVC)</li>
+            <li>A language (Type Script)</li>
+            <br>
+            <li>Development tools:</li>
+              <ul>
+              <li>NodeJS and NPM are needed</li>
+              <li>Angular tools (Angular CLI, Angular Compiler, ...)</li>
+              <li>webpack (module builder)</li>
+              <li>Karma (unit testing)</li>
+              <li>...</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>NodeJS = équivaut à JVM, Pyhton, …</li>
+              <li>NPM = équivaut à PIP en python ou PPM pour PERL</li>
+              <li>module builder = génération des fichiers JS (module)</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>        
+          <h3>How to deploy my SPA with Angular?</h3>
+          <ul>
+            <li>Transpiling:</li>
+            <ul>
+              <li>Just-in-Time (JiT)</li>
+              <li>Ahead-of-Time (AoT)</li>
+          </ul>
+          <p>And many other tasks should be done...</p>
+          <aside class="notes">
+            <ul>
+              <li>Jit: source téléchargé puis compiler via le navigateur (pour la dev)</li>
+              <li>AOT : mise à disposition du code compilé (plus rapide et plus léger, pour la production)</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+        <h3>Next Step:<br> securing Single Page Apps !</h2>
+        </section>
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        multiplex: {
+          secret: '14966684851275674290',
+          id: '2188b1174d97bd76',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+      Reveal.configure({ slideNumber: 'c/t' });
+    </script>
+  </body>
+</html>

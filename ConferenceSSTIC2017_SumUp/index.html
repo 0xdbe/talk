@@ -1,0 +1,871 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SSTIC 2017 - Sum Up</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:2%;
+        width:60%;
+        top:40%;
+        background-color:rgba(124,8,14,0.5);
+        text-align: right;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+<section>
+
+      <section data-state="header1" data-background="img/background.png">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>SSTIC 2017 - Sum up</h1>
+              <h4>June 15<span class="ordinal">th</span>, 2017</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+    </section>
+    
+    <section>
+      <p>View online at <a href="http://0xdbe.github.io/ConferenceSSTIC2017">https://git.io/XXXXXX</a></p>
+      <p><b>For this presentation, set the zoom level to 25%</b></p>
+      <br><br>
+      <p><b>Keyboard Shortcuts</b></p>
+      <table>
+        <tr>
+          <td><b>Full Screen</b></td>
+          <td>F</td>
+        </tr>
+        <tr>
+          <td><b>Next Slide</b></td>
+          <td>Space bar</td>
+        </tr>
+        <tr>
+          <td><b>Slide Notes</b></td>
+          <td>S</td>
+        </tr>
+        <tr>
+          <td><b>Thumbnail View</b></td>
+          <td>Esc</td>
+        </tr>
+      </table>
+  </section>
+  
+    <section data-background="img/amphi.JPG">
+    </section>
+    
+    
+    <section>
+          <h1>Toujours de l'humour !!!!</h1>
+    </section>
+    
+    <section>
+          <img src="img/IMG_20170612_231328.jpg">
+    </section>
+    
+    <section>
+          <h1>Security Lessons</h1>
+          <h3>A MOOC by Donald J. Trump</h3>
+    </section>
+    
+    <section>
+          <img src="img/Lesson 1.jpg">
+    </section>
+    <section>
+          <img src="img/Lesson 2.jpg">
+    </section>
+    <section>
+          <img src="img/Lesson 3.jpg">
+    </section>
+    <section>
+          <img src="img/Lesson 4.jpg">
+    </section>
+    
+  </section>
+
+  <section>
+
+    <section>
+          <h1>Day 1 - Morning</h1>
+        </section>
+        
+        <section>
+        <h2>Anti-DDOS VAC (1/2)</h2>
+        <p>Par Octave Klaba (OVH)</p>
+        <br>
+        <ul>
+          <li>VAC (Vacuum)</li>
+          <ul>
+            <li>Mesure de protection réalisée par OVH</li>
+            <li>Solution basée sur des FPGA</li>
+            <li>Protection contre le D-DOS uni-directionel</li>
+            <li>Gratuit pour tous les clients (Cela permet à OVH de protéger son infrastructure)</li>
+            <li>2,5 Tbps de capacité de nettoyage</li>
+          </ul>
+          <br>  
+          <li>Détection et activation:</li>
+          <ul>
+            <li>La détection de l'attaque DDOS doit se faire le plus rapidement possible</li>
+            <li>Détection par analyse de log (Kafka et développement interne)</li>
+            <li>L'activation consiste à re-router automatiquement les flux vers le VAC</li>
+            <li>L'activation doit se faire en moins d'une seconde</li>
+          </ul>
+        </section>
+          
+        <section>
+        <h2>Anti-DDOS VAC (1/2)</h2>
+        <p>Par Octave Klaba (OVH)</p>
+        <br>
+        <ul>
+          <li>Multi-VAC:</li>
+          <ul>
+            <li>Le flux est routé vers le VAC du datacenter le plus proche de l'origine du flux</li>
+            <li>Après nettoyage, le flux est routé vers le datacenter de destination</li>
+          </ul>
+          <br>
+          <li>Technologies:</li>
+            <ul>
+            <li>QUAGGA: logiciel de routage open source installé sur les VAC</li>
+            <li>Protocole de routage: DSCP + PBR + BGP + QPPB</li>
+            <li>PBR: Policies Based Routing</li>
+            <li>UBRL (User Based Rate Limiting):</li>
+            <ul>
+              <li>Offre un accès équitable à chaque trader</li>
+              <li>Equitable = même temps de réponse pour tous quelque soit le lieu du trader</li>
+            </ul>
+            <li>Arbor: solution matériel de nettoyage des flux réseau (plus performant que Radware mais relativement cher)</li>
+        </ul>
+        </section>
+
+        
+        <section>
+        <h2>L'administration en Silo</h2>
+        <p>Par Aurélien Bordes</p>
+        <ul>
+          <li>Scénario de test d'intrusion classique :
+            <ul>
+              <li>Extraction des secrets kerberos en mémoire (Mimikatz)</li>
+              <li>poste de travail > Serveur > Active directory</li>
+            </ul>
+          <br>
+          <p>Quelques solutions pour s'en prémunir :</p>
+          <li>Niveau d'administration à mettre en oeuvre:</li>
+            <ul>
+            <li>Rouge: Active Directory avec administrateur de domaine</li>
+            <li>Jaune: serveurs avec administrateur des serveurs</li>
+            <li>Vert: poste de travail avec administrateur local et utilisateur du helpdesk</li>
+          </ul>
+          <br>
+          <li>Nouveaux mécanismes de sécurité mis en oeuvre par Microsoft :</li>
+          <ul>
+            <li><b>Protected User Security Group</b> permet de renforcer le niveau de sécurité d'un compte utilisateur comme désactiver la délégation de compte et l'utilisation du protocole NTLM</li>
+            <li><b>FAST (Flexible authentification via Secure Tunneling)</b> est un protocole pour protéger les tickets TGT</li>
+            <li><b>Stratégie d'authentification</b> permet de mettre en place une restriction sur l'utilisation des tickets Kerberos (exemple: le poste de travail doit être dans le groupe "admin_Ad")</li>
+            <li><b>Authentification Composée</b> permet de protéger les messages TGS</li>
+          </ul>
+        </ul>
+        </section>
+        
+        <section>
+        <h2>WSUS pendu</h2>
+        <p>Par Yves LE PROVOST (ANSSI) et Romain COLTEL (ALSID) </p>
+        <p>Utilisation de WSUS pour compromettre les machines qui se connectent au serveur WSUS d'entreprise</p>
+        <ul>
+          <li>Vulnérabilité:</li>
+          <ul>
+            <li>les machines se connectent au serveur WSUS en HTTP</li>
+            <li>Le processus s'exécute avec les droits système sur les machines</li>
+            <li>Seul le binaire est signé (pas les paramètres)</li>
+        </ul>
+        <br>
+        <li>Attaque WSUSpect (Black Hat USA 2015) :</li>
+          <ul>
+            <li>MITM entre la machine et le serveur WSUS</li>
+            <li>Injection de code malveillant en paramètre d'un binaire signé par Microsoft</li>
+          </ul>
+        <br>
+        <li>Attaque WSUSpendu:</li>
+          <ul>
+            <li>Accès à la base de données du WSUS pour modifier les paramètres</li>
+            <li>Code pour créer un administrateur sur les machines victimes</li>
+          </ul>
+        <br>  
+        <li>Méthode de protection:</li>
+          <ul>
+            <li>Activer le TLS sur le serveur WSUS</li>
+            <li>Le serveur WSUS doit être dans la zone rouge pour limiter les accès illicites à la base de données</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Durcissement système à l'aide de Systemd</h2>
+          <p>Par Timotthée Ravier (ANSSI)</p>        
+          <br>
+          <ul>
+          <li>Systemd est un SysInit qui permet de lancer les autres démons d'un système Linux.</li>
+          <br>
+          <li>Pour éditer la configuration : systemctl edit php-fpm.service</li>
+          <br>
+          <li>Méthodes de sécurisation disponibles:</li>
+          <ul>
+            <li>Ajouter les attributs "User" et "Group"</li>
+            <li>Utilisation de seccomp-bpf avec l'attribut "SystemCallFilter"</li>
+            <li>Ajouter des capacités à un processus avec l'attribut "CapabilityBoundingSet" et "Ambient Capabilities"</li>
+            <li>Utilisation des namespaces avec l'option "InaccessiblePaths" et "ProtectSystem"</li>
+          </ul>
+          <br>
+          <li>Exemple de protection contre Dirty Cow (Copy on Write)</li>
+          <br>
+          <li><i>Troll: les vulnérabilités de systemd n'ont pas été abordées !!!</i></li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Landlock</h2>
+          <p>Par Mickael SALAUM (ANSSI)</p>
+          <br>
+          <ul>
+          <li>Logiciel développé par l'ANSSI</li>
+          <br>
+          <li>Durcissement d'application</li>
+            <ul>
+              <li>Controle d'accès sur objet noyaux</li>
+              <li>Politique de sécurité évolutive</li>
+              <li>Sandboxing non privilégié</li>
+            </ul>
+          <br>
+          <li><i>Sandboxing privilégié: celui qui applique le contrôle d'accès doit avoir plus de droits que celui qui demande</i></li>
+          <br>
+          <li>Règle Landlock est écrite en C, compilée puis injectée (eBPF) dans le noyau</li>
+          <br>
+          <li>Incubation dans Linux Kit (Docker)</li>
+          </ul>
+          
+      </section>
+      
+</section>
+<section>
+      <section>
+          <h1>Day 1 - Afternoon</h1>
+        </section>
+    
+      <section>
+        <h2>Static Analysis and Runtime Assertion Checking</h2>
+        <p>Par Dillon PARIENTE (Dassault Aviation) et Julien SIGNOTES (CEA)</p>
+        <br>
+        <ul>
+          <li>Analyse statique par "interpretation abstraite", c'est à dire sans exécution du code.</li>
+          <br>
+          <li>FRAMA-C :</li>
+          <ul>
+            <li>Plateforme Open Source</li>
+            <li>Développée par le CEA</li>
+          </ul>
+          <br>
+          <li>Methode CURSOR:</li>
+          <ul>
+            <li>Analyse static (avec FRAMA-C) et analyse dynamique (avec E-ACSL et EVA)</li>
+          </ul>
+        </ul>
+      </section>
+    
+      <section>
+        <h2>BinCAT: purrfecrting binary static analysis</h2>
+        <p>Par Philippe BIONDI, Raphael RIGO, Sarah ZENNOU, Xavier MEHRENBERGER (Airbus)</p>
+        <br>
+        <ul>
+          <li>Analyse statique de binaire (x86 uniquement)</li>
+          <li>Taint analysis (Data flow): check which variables can be modified by the user input</li>
+          <li>Control flow graph</li>
+          <li>Intégré dans IDA</li>
+          <li><a href="https://github.com/airbus-seclab/bincat">BinCAT on GitHub</a></li>
+        </ul>
+      </section>
+    
+      <section>
+        <h2>Désobfuscation de binaire</h2>
+        <p>par J. SALWAN, M. POTET, S. BARDIN (CEA et QuaskSlab)</p>
+        <br>
+        <ul>
+          <li>Binary Protection:<li>
+          <ul>
+            <li>byte code propriétaire (Instruction Set Architecture) émulé par une machine virtuelle</li>
+            <li>Dans certains cas, plusieurs niveau de VM</li>
+          </ul>
+          <br>
+          <li>Approche classique: analyse du code dans la machine virtuelle pour analyser le code</li>
+          <li>Approche proposée: automatic désobfuscation</li>
+          <ul>
+            <li>Isoler les instructions du programme des instructions de la machine virtuelle (Taint analysis)</li>
+            <li>Reconstruire le control flow du programme en prenant en compte l'état initial de la VM</li>
+          </ul>
+          <br>
+          <li>Processus : Obfuscated binary > Triton AST > Arybo > LLVM > Deobfuscated Binary</li>
+          <br>
+          <li>Exemple avec Tigress Challenges</li>
+        </ul>
+      </section>
+    
+      <section>
+        <h2>Writing parsers like it is 2017</h2>
+        <p>par G. COUPRIE et P. CHIFFLIER</p>
+        <br>
+        <ul>
+          <li>Les parser sont source d'erreur (exemple : parser HTTP de CloudBleed)</li>
+          <li>Proposer un parser sécurisé pour remplacer les parsers existants</li>
+          <li>RUST: compilateur prends en charge bcp de fonction de sécurité (malloc, free, ...)</li>
+          <li>Exemple d'implémentation avec Suricata et VLC</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Caradoc</h2>
+        <p>Par G. ENDIGNOUX et O. LEVILLAIN (ANSSI)</p>
+        <br>
+        <ul>
+          <li>Parser de document PDF</li>
+          <li>Le parsing est la première étape d'anlyse d'un PDF</li>
+          <li>Syntaxe du fichier</li>
+        </ul>
+      </section>
+      
+      <section>
+      <h2>Rump - Session privée</h2>
+      <ul>
+        <li>Broking The Shadow Brockers (TSB)</li>
+        <li>DEF CON 25 SecCTF (Exemple de phishing avec la Tour Eiffel) => NULLLLL !!!!</li>
+        <li>VLC: A sandbox ? (Sollicite la communauté sécurité pour avoir des idées)</li>
+        <li>When bad guys are pwning (bad) guys ? (WebShell)</li>
+        <li>XSS dans kippo-grahp (Honeypot avec Cowrie)</li>
+        <li>YakaPatcher (IDA) => Humour</li>
+        <li>Thévenoud ou Cahuzac mon coeur balance (Revenu des BugBounty)</li>
+        <li>Internet of craft (Cadenas connectés)</li>
+        <li>J'ai si peur du CISPR, mon filleul est diabétique</li>
+      </ul>
+      </section>
+    
+    </section>
+    
+<Section>
+    
+    <section><h1>Day 2 - Morning</h1></section>
+    
+    <section>
+      <h2>CrashOS</h2>
+      <p>Par Anais GANTET (Airbus)</p>
+      <ul>
+        <li>Détection de vulnérabilités dans les hyperviseurs</li>
+        <li>CrashOS: système d'exploitation configuré pour faire "crascher" l'hyperviseur</li>
+        <li>Analyse du comportement de l'hyperviseur face aux attaques de CrashOS</li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>ProTIP</h2>
+      <p>Par M DAUBIGNARD et Y. PERREZ (ANSSI)</p>
+      <ul>
+        <li>ProTIP: <b>Pro</b>log <b>T</b>ester for </b>I</b>nformation flow in </b>P</b>CIe network</li>
+        <li>Analyse de périphériques malveillants sur le bus PCI Express</li>
+        <li>Un périphérique peut devenir malveillant (Mise à jour du firmware)</li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>RKE system analysis</h2>
+      <p>C. KASMI, J. LOPES ESTEVES, M. RENARD, R. BENADJILA</p>
+      <br>
+      <ul>
+        <li>RKE (Remote keyless Entry):
+        <ul>
+          <li>protocole radio pour ouvrir les portes d'un véhicule</li>
+          <li>Usenix 2016</li>
+          <li>433 Mhz</li>
+        </ul>
+        <br>
+        <li>Protection : 
+        <ul>
+          <li>Compteur anti rejeu:</li>
+            <ul>
+              <li>Ce compteur est initialisé par une valeur aléatoire lorsque la clé est insérée dans le démarreur</li>
+              <li>Ce compteur est utilisé pour créer le vecteur d'initialisation</li>
+            </ul>
+          <li>Authentifiant : 3 clés cryptographiques partagées entre la clé et l'ECU du véhicule</li>
+        </ul>
+        <br>
+        <li>Méthode d'attaque: Hitag 2</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>De bas en haut : Attaque Micro architecture</h2>
+      <p>Clémentine MAURICE</p>
+      <br>
+      <ul>
+        <li>Attaque de type Side Channel sur la mémoire DRAM</li>
+        <li>Reverse engineering sur la DRAM</li> 
+        <li>Implementation de l'attaque "RowHammer" en javascript dans un navigateur</li>
+        <li>Finalité: canal caché de transmission entre une page javascript sur le hôte et une VM</li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>Binacle indexation</h2>
+      <p>Par Guillaume JEANNE (ANSSI)</p>
+      <br>
+      <ul>
+        <li>Indexation de fichiers binaires pour trouver des séquences (adresse IP, domaine DNS, ...)</li>
+        <li>Difficulté pour le stockage de toutes ces données en base (insertion ou lecture lente)</li>
+        <br>
+        <li>Solution:</li>
+        <ul>
+          <li>Developpé en RUST</li>
+          <li>Découpage d'un binaire en N-grammes (Code en Hexa)</li>
+          <li>Hashtable de n-Gramme inspiré de LMDB (Bloom Filter)</li>
+          <li>Intégration dans YARA pour l'analyse de malware</li>
+        </ul>
+        <br>
+        <li><a href="htts://github.com/ANSSI-FR/Binacle">Download on GitHub</a></li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>YaCo: Rétro-ingénierie collaborative</h2>
+      <p>Par B. AMIAUX, F. GRELOT, J. BOUETARD, M. TOURNEBOEUF et V. COMITI (DGA)</p>
+      <br>
+      <ul>
+        <li>Plugin IDA Developpé en C++ et Python</li>
+        <li>Centralise les actions réalisées par les utilisateurs dans un dépot GIT</li>
+        <li>Description des actions dans un fichier XML</li>
+        <li>Disponible sur GitHub</li>
+      </ul>
+      </section>
+    
+    <section>
+      <h2>Sybyl: function divination</h2>
+      <p>Par C. MOUGEY (CEA)</p>
+      <br>
+      <ul>
+        <li>Objectif de l'outil:</li>
+        <ul>
+          <li>la fonction à l'adresse ABCD dans le binaire est un memcopy</li>
+          <li>Retrouver la fonction d'origine (memcopy) à partir du code compilé</li>
+        </ul>
+        <br>
+        <li>Plugin pour MIASM</li>
+      </ul>
+    </section>
+      
+    <section>
+      <h2>Attacking Samsung Secure Boot</h2>
+      <p>Par F. BASSE</p>
+      <br>
+      <ul>
+        <li>Vidéo de démonstration de l'outil Celebrite pour extraire les données d'un téléphone.</li>
+        <br>
+        <li>Download mode:</li>
+        <ul>
+          <li>Boot du téléphone dans un mode debug permettant de mettre à jour le firmware</li>
+          <li>Il est activé par une simple combinaison de touches</li>
+        </ul>
+        <br>
+        <li>T-Flash mode:</li>
+        <ul>
+          <li>Active le stockage sur la carte SD (au lieu de la flash interne)</li>
+          <li>Installation d'un firware non signé</li>
+        </ul>
+      </ul>
+    </section>
+      
+</section>
+
+<section>
+
+  <section><h1>Day 2 - Afternoon</h1></section>
+  
+  <section>
+    <h2>Oups, vos élections ont été piratées (ou pas) ...</h2>
+    <p>Par M. Untersinger (Le Monde)</p>
+    <br>
+    <ul>
+      <li>Rappel des derniers évènements de piratage</li>
+      <ul>
+        <li>Piratage du partie démocrate (USA)
+        <li>Macron Leaks</li>
+      </ul>
+      <br>
+      <li>Attribution du piratage à un groupe de pirate ou à un Etat</li>
+      <br>
+      <li>Le piratage (comme l'attribution) est-il un moyen d'influencer la population ?</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Challenges SSTIC</h2>
+    <br>
+    <p>... to do ... </p>
+  </section>
+  
+  <section>
+    <h2>Rumps</h2>
+    <br>
+    <ol>
+      <li>SSTIC 2017 (Benjamin Morin)</li>
+      <li class="fragment highlight-red">Tracking the bad guys via un "favico" (Xavier)</li>
+      <li>Sisyphe (GomoR)</li>
+      <li class="fragment highlight-red">Internet of trash (Jean-Michel)</li>
+      <li>Sécurité des télévisions connectées (Tristan)</li>
+      <li>Scapy pipes (Phil)</li>
+      <li>IDASuckLess (Eloi)</li>
+      <li>BeeRumP (Eloi)</li>
+      <li class="fragment highlight-red">Du PHP dans du PNG (Christophe)</li>
+      <li>L'intelligence artificielle au service de la cybersécurité (Nicolas)</li>
+      <li class="fragment highlight-red">Votre profil psychologique en fonction de votre mot de passe LinkedIN (Jiss)</li>
+      <li>La vie et la survie des logiciels open source (Eric)</li>
+      <li>Typons avec Miasm! (Serpi) => Humour</li>
+      <li>FreeOTP (Romain)</li>
+      <li>SELinux vs. Analyse de code (Nicolas)</li>
+      <li>http2.lol: active stack fingerprinting (Georges)</li>
+      <li>nojail.py (Ivan)</li>
+      <li>metasm ebpf (yo)</li>
+      <li>USBWALL : Outil de filtrage et d'imputabilité des éléments USB dans un SI (Sylvain)</li>
+      <li>Hello pdf (Guillaume)</li>
+      <li>Des voitures incontrôlables ? (FlUxIuS)</li>
+      <li class="fragment highlight-red">Sécurité des micros sans fil (Pierre-Michel)</li>
+</ol>
+  </section>
+
+  
+</section>
+
+<section>
+    
+    <section><h1>Day 3 - Morning</h1></section>
+    
+    <section>
+      <h2>Packet Weaver</h2>
+      <p>Par F. MAURY et S. MAINAND (ANSSI)</p>
+      <br>
+      <ul>
+        <li>Network tools for penetration test</li>
+        <li>Framework en python</li>
+        <li>Chainage de script (modulaire)</li>
+        <li><a href="https://github.com/ANSSI-FR/packetweaver">Packet Weaver on GitHub</a></li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>CPU_Rec.py</h2>
+      <p>L. GRANBOULAN (Airbus)</p>
+      <br>
+      <ul>
+        <li>Binaire est un fichier qui contient des instructions pour le processeur</li>
+        <li>Architecture du processeur au sens ISA (Instruction Set Architecture)</li>
+        <br>
+        <li>Finalité de l'outil: identifier l'architecture du processeur pour lequel le binaire est compilé</li>
+        <li>Module pour Binwalk</li>
+        <br>
+        <li><a href="https://github.com/airbus-seclab/cpu_rec">CPU Rec on GitHub</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>SecuML: Le machine learning pour la détection d'intrusion</h2>
+      <p>Par A. BONNETON et A. HUSSON (ANSSI et ENS INRIA)</p>
+      <br>
+      <ul>
+        <li>ML pour palier au limite de la signature</li>
+        <br>
+        <li>Classifieur:</li>
+        <ul>
+          <li>Analyse des fichiers entrants</li>
+          <li>Indicateur de probabilité de malveillance (0 à 100%) pour chaque fichier analysé</li>
+          <li>Phase d'apprentissage réalisé à partir de la base Contagio disponible sur internet</li>
+        </ul>
+        <br>
+        <li>Exemple d'application aux fichiers PDF</li>
+        <li>Il peut également s'appliquer pour l'analyse de mail et la détection de Spam</li>
+        <br>
+        <li>Outil dévelopé en Python avec le framework "scikit-learn"</li>
+        <li><a href="https://github.com/ANSSI-FR/SecuML">SecuML on GitHub</a></li>
+      </ul>
+    </section>
+    
+    
+    <section>
+      <h2>NDIS: a la recherche du méchand perdu</h2>
+      <p>Par E. LEBLOND (STAMVS Network)</p>
+      <br>
+      <ul>
+        <li>Suricata: outil de detection dévelopé par E. LEBLOND</li>
+        <li>Objectif: générer un graph de la propagation d'une attaque réseau</li>
+        <li>Mais problématique dans les traces des paquets (Sources / Destination)</li>
+        <li>Solution: création d'un nouveau champ de recherche "Target" qui peut être soit en destination soit en source</li>
+        <li>Sera proposé dans la prochaine version de Suricata</li>
+      </ul>
+    </section>
+
+        
+    <section>
+      <h2>TLS 1.3</h2>
+      <p>Par Filippo VALSORDA (Cloudflare)</p>
+      <br>
+      <ul>
+        <li>TLS 1.2 and TLS 1.3 overview</li>
+        <br>
+        <li>RTT (Round Trip Time) Resumption</li>
+        <ul>
+          <li>RTT = Hello Retry Request</li>
+          <li>2 méthodes : 0-RTT et 1-RTT</li>
+        </ul>
+        <br>
+        <li>Problématique du 0-RTT</li>
+        <ul>
+          <li>No PSK-ECDHE</li>
+          <li>Perfect Forward Secrecy not supported</li>
+        </ul>
+        <br>
+        <li>Recommandaton :</li>
+        <ul>
+          <li>Ne jamais utiliser 0-RTT mais 1-RTT</li>
+          <li>ou alors pour des requêtes GET sans paramètres</li></li>
+        </ul>
+        
+        <br>
+        <li>Pour plus d'informations :</li>
+        <ul>
+          <li>https://blog.cloudflare.com/introducing-0-RTT/</li>
+          <li><a href="https://github.com/cloudflare/tls-tris">TLS tris on GitHub</a></li>
+        </ul>
+        
+      <!--
+        <li>TLS 1.2 ECDHE overview</li>
+        <li>TLS is a big jump</li>
+        <li>RTT =>Hello Retry Request</li>
+        <li>Resumption with Session ticket (PSK)</li>
+        <li>Problème avec Forward Secrecy => l'interception du PSK permet de déchiffré la Session</li>
+        <li>Il faut utiliser le PSK-ECDHE</li>
+        <li>0-RTT: no psk-ECDHE !!!! et pas de Forward Secrecy</li>
+        <li>0 RTT allows replay (notamment pour cloudflare qui a plusieurs serveur pour une même url)</li>
+        <li>Protocol MUST not use 0-RTT</li>
+        <li>Default 1-RTT</li>
+        </li>0-RTT only for GET without parameters => car les parametre ne sont pas protégés par le Perfect Forward Secrecy</li>
+        <li>https://blog.cloudflare.com/introducing-0-RTT/</li>
+        <li><a href="https://github.com/cloudflare/tls-tris">TLS tris on GitHub</a></li>
+        -->
+      </ul>
+      <aside class="notes">
+        <p>GET request with 0-RTT : les paramètres ne sont pas protégés par le Perfect Forward Secrecy</p>
+      </aside>
+    </section>
+    
+    <section>
+      <h2>Subscribers geolocalisation and tracking using 4G VoLTE enabled Android phone</h2>
+      <p>Par O. LE MOAL, P. VENTUZELO et T. COUDRAY (P1 Security)</p>
+      <br>
+      <ul>
+        <li>VoLTE (Voice over LTE)</li>
+        <ul>
+          <li>Based on VoIP Protocol (SIP, ...)</li>
+          <li>Peut être utilisé pour faire de la téléphonie par le Wifi et peut également supporter la vidéo</li>
+        </ul>
+        <br>
+        <li>Attaque: Caller ID spoofing</li>
+        <ul>
+          <li>Installation d'un logiciel pour forger des paquets 4G sur un téléphoné android rooté</li>
+          <li>L'attaquant forge un packet d'initialisation de communication avec un faux call id number</li>
+          <li>Modifcation des messages de signaling (non facturé et probablement non enregistré dans les écoutes téléphonique)</li>
+          <li>Il est également possible de modifier des headers "extra"  (hors RFC) et d'ajouter des headers</li>
+        </ul>
+        <br>
+        <li>Impact: récupération d'informations présentes dans le message de réponse</li>
+        <ul>
+          <li>Modèle de téléphoné, build number et IMEI du destinataire du call</li>
+          <li>Utran-cell-id = géolocalisation du destinataire avec CallFinder qui recense les bornes des opérateurs</li>
+        </ul>
+        <br>
+      </ul>
+      <p><b>Et le téléphone du destinataire ne sonnera pas, il n'en saura rien...</b></p>
+    </section>
+    
+    <section>
+      <h2>DroneJack: kiss your drones goodbye ! </h2>
+      <p>par G. FOURNIER, P. COTRET, P. AUDREN DE KERDREL, V. VIET TRIEM TRONG (Centrale Supélec)</p>
+      <br>
+      <ul>
+        <li>Solution existante : drone watch (brouilleur), drone defender (pistoler brouilleur), aigles, SkiJack (Attaque informatique)</li>
+        <br>
+        <li>Drone jack :</li>
+        <ul>
+          <li>protection continue contre un nuage de drones</li>
+          <li>Sondes de détection des drones basé sur des Raspberry Pi</li>
+        </ul>
+        <br>
+        <li>Fonctionnement</li>
+        <ul>
+          <li>Phase de détection : le drone étant un point d'accès, détection des nouveaux point d'accès wifi (adresse MAC et autres critères)</li>
+          <li>Phase de tracking : analyse des trames "beacon" qui déterminent la distance en fonction de la puissance du signal</li>
+          <li>Phase de prise de controle: déconnection du pilote puis le drone se met en vol stationnaire puis prise de controle si réseau wifi ouvert</li>
+        </ul>
+        <br>
+        <li><b>Finalité :</b> récupération de la carte de vol pour identifier le point de décolage du drone et donc trouver le pilote qui se trouve généralement à ce point de décolage</li>
+      </ul>
+    </section>
+  
+</section>
+
+<section>
+
+    <section><h1>Day 3 - Afternoon</h1></section>
+  
+    <section>
+      <h2>Brosse à dent connectée</h2>
+      <p>Par Axelle APVRILLE (Fortinet)</p>
+      <br>
+      <ul>
+        <li>Brosse à dent<li>
+        <ul>
+          <li>Non disponible pour le grand public</li>
+          <li>Commercialisée par une assurance dentaire souscrite par l'employeur</li>
+          <li>Une application mobile permet de jouer en se brossant les dent (Etoile, coeur, ...)</li>
+        </ul>
+        <br>
+        <li><b>Attaque de la brosse à dent:</b> se connecter à la brosse à dent à partir d'un ordinateur</li>
+        <ul>
+          <li>BLE sans appairage</li>
+          <li>Information transférées : Vitesse moteur, niveau batterie, heure, ...</li>
+          <li>Possibilité de piloter la brosse à dent à distance : marche/arrêt, vitesse moteur, ...</li>
+        </ul>
+        <br>
+        <li><b>Attaque de l'application mobile :</b> simuler une brosse à dent à partir d'un ordinateur</li>
+          <ul>
+            <li>Emission de trame BLE pour se faire passer pour une fausse brosse à dent aurpès de l'application mobile</li>
+            <li>Certains messages sont chiffrés (en AES CBC) et la clé se trouve en dur dans le code de l'application mobile</li>
+            <li>Application mobile utilise une API de l'assureur:</li>
+            <ul>
+              <li>Modifier son score (coeur / etoile)</li>
+              <li>API en libre accès : Récupération des données des autres utilisateurs</li>
+            </ul>
+          </ul>
+      </ul>
+    </section>
+  
+    <section>
+      <h2>Retour technique de l'incident</h2>
+      <p>Par (ANSSI)</p>
+      <br>
+      <ul>
+        <li>Coupure de la diffusion et defacing du site web, plus d'accès aux mails</li>
+        
+        <li>Analyse</li>
+        <ul>
+          <li>Compte admin de domaine créer dans l'AD et des sessions RDP ouverte avec ce compte</li>
+          <li>Récupération du mdp et connection sur les sessions ouvertes (connnectBack.dll)</li>
+          <li>Collecte d'adresse IP ayant pris en main les sessions RDP</li>
+          <li>Collecte de données : journaux (réseau TACAS, ASA, Active Directory, ....), copie disque et mémoire, puis agent de collecte sur les serveurs et poste de travail et les équipements spécifique pour la diffusion d'image (linux embarqué)</li>
+          <li>Flashback (forensic mémoire sur l'ensemble du parc) et Orc2DB (centralisation des données permettant à tous d'analyser les données</li>
+          <li>Attaque: compromission en 3 jours (Février 2015) puis sabotage début avril 2015</li>
+          <li>Utilisation du service RDP utilisé par les journalistes pour transmettre les vidéos, image et article</li>
+          <li>Utilisation du mdp par défaut de l'équipement et installation d'un RAS</li>
+          <li>Mais cette machine n'est pas relié au réseau</li>
+          <li>Utilisation d'un compte VPN d'un prestataire via une IP vanish</li>
+          <li>Scan du réseau et découvre des machines qui gère le déplacement des caméra (usage des mdp par défaut pour en prendre le controle)</li>
+          <li>connexion avec le compte d'un prestataire sur l'AD et se creer un compte adm du domaine</li>
+          <li>Utilisation des mails pour trouver des informations (@ip et mdp, ....)</li>
+          <li>Utilisatoin des informations trouvées pour rebondir sur les autres machines</li>
+          <li>Installation d'un "connect back" sur les postes des administrateurs du SI</li>
+          <li>Accès aux multiplexeur, encodeur, ....</li>
+          <li>Il se déconnecte du VPN puis utilisera le "ConnectBack" pour la suite des opérations</li>
+          <li>Modification de la configuration IP du matériel audiovisuel</li>
+          <li>Defacing du site et réseau sociaux</li>
+          <li>Supression des firmwares sur le matériel réseau et audiovisuel (22h)</li>
+          <li>Supression des VM et notamment la messagerie</li>
+          <li>23h50 : TV5 monde décide de couper la connection internet</li>
+        </ul>
+        
+        <li>Remediation</li>
+        <ul>
+          <li>Mise en place d'un accès internet filtré (5 PC)</li>
+          <li>Mise en place d'un système de diffusion en boucle de vidéo déjà enregistré (après extraction safe du SI infecté)</li>
+          <li>Création d'un environnement de travail minimaliste</li>
+          <li>Définition d'un réseau cloisonné : 50 VRF</li>
+          <li>filtre parefeu</li>
+          <li>bastion RDP pour les prestataires</li>
+          <li>Durcissement de l'AD : 3 Zones (Rouge, jaune et vert)</li>
+          <li>Bascule de l'AD</li>
+        </ul>
+        
+      </ul>
+    </section>
+  
+</section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1920,
+        height: 1080,
+        multiplex: {
+          secret: '14968221390314254057',
+          id: 'd6473472a4a2b3a5',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

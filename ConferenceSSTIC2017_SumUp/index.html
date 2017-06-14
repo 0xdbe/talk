@@ -53,7 +53,7 @@
     </section>
     
     <section>
-      <p>View online at <a href="http://0xdbe.github.io/ConferenceSSTIC2017">https://git.io/XXXXXX</a></p>
+      <p>View online at <a href="http://0xdbe.github.io/ConferenceSSTIC2017">https://git.io/vHFyi</a></p>
       <p><b>For this presentation, set the zoom level to 25%</b></p>
       <br><br>
       <p><b>Keyboard Shortcuts</b></p>
@@ -528,7 +528,13 @@
   <section>
     <h2>Challenges SSTIC</h2>
     <br>
-    <p>... to do ... </p>
+    <ol>
+      <li>Analyse d'une trace d'analyseur logique (Programmation de NAND)
+      <li>Retro-ingénierie de filtre eBPF</li>
+      <li>Simulation de trustzone (rétro-ingénierie OpenRISC et RISC-V</li>
+      <li>Crack-Me Windows: machine virtuelles imbriquées et auto exploitation</li>
+      <li>QR code et labyrinthe</li>
+    </ol>
   </section>
   
   <section>
@@ -777,52 +783,72 @@
   
     <section>
       <h2>Retour technique de l'incident</h2>
-      <p>Par (ANSSI)</p>
+      <p>Par Anonyme (ANSSI)</p>
       <br>
+      <h3>Phase 1 : Compromission (Février 2015)</h3>
       <ul>
-        <li>Coupure de la diffusion et defacing du site web, plus d'accès aux mails</li>
-        
-        <li>Analyse</li>
-        <ul>
-          <li>Compte admin de domaine créer dans l'AD et des sessions RDP ouverte avec ce compte</li>
-          <li>Récupération du mdp et connection sur les sessions ouvertes (connnectBack.dll)</li>
-          <li>Collecte d'adresse IP ayant pris en main les sessions RDP</li>
-          <li>Collecte de données : journaux (réseau TACAS, ASA, Active Directory, ....), copie disque et mémoire, puis agent de collecte sur les serveurs et poste de travail et les équipements spécifique pour la diffusion d'image (linux embarqué)</li>
-          <li>Flashback (forensic mémoire sur l'ensemble du parc) et Orc2DB (centralisation des données permettant à tous d'analyser les données</li>
-          <li>Attaque: compromission en 3 jours (Février 2015) puis sabotage début avril 2015</li>
-          <li>Utilisation du service RDP utilisé par les journalistes pour transmettre les vidéos, image et article</li>
-          <li>Utilisation du mdp par défaut de l'équipement et installation d'un RAS</li>
-          <li>Mais cette machine n'est pas relié au réseau</li>
-          <li>Utilisation d'un compte VPN d'un prestataire via une IP vanish</li>
-          <li>Scan du réseau et découvre des machines qui gère le déplacement des caméra (usage des mdp par défaut pour en prendre le controle)</li>
-          <li>connexion avec le compte d'un prestataire sur l'AD et se creer un compte adm du domaine</li>
-          <li>Utilisation des mails pour trouver des informations (@ip et mdp, ....)</li>
-          <li>Utilisatoin des informations trouvées pour rebondir sur les autres machines</li>
-          <li>Installation d'un "connect back" sur les postes des administrateurs du SI</li>
-          <li>Accès aux multiplexeur, encodeur, ....</li>
-          <li>Il se déconnecte du VPN puis utilisera le "ConnectBack" pour la suite des opérations</li>
-          <li>Modification de la configuration IP du matériel audiovisuel</li>
-          <li>Defacing du site et réseau sociaux</li>
-          <li>Supression des firmwares sur le matériel réseau et audiovisuel (22h)</li>
-          <li>Supression des VM et notamment la messagerie</li>
-          <li>23h50 : TV5 monde décide de couper la connection internet</li>
-        </ul>
-        
-        <li>Remediation</li>
-        <ul>
-          <li>Mise en place d'un accès internet filtré (5 PC)</li>
-          <li>Mise en place d'un système de diffusion en boucle de vidéo déjà enregistré (après extraction safe du SI infecté)</li>
-          <li>Création d'un environnement de travail minimaliste</li>
-          <li>Définition d'un réseau cloisonné : 50 VRF</li>
-          <li>filtre parefeu</li>
-          <li>bastion RDP pour les prestataires</li>
-          <li>Durcissement de l'AD : 3 Zones (Rouge, jaune et vert)</li>
-          <li>Bascule de l'AD</li>
-        </ul>
-        
+        <li>Compromission en 3 jours</li>
+        <li>Via un réseau VPN anonyme "IP Vanish"</li>
+        <li>Connexion au service RDP utilisé par les journalistes pour transmettre les vidéos, images et articles</li>
+        <li>Connexion avec le compte d'un prestataire sur l'Active Directory pour créer un compte administrateur de domaine</li>
+        <li>Installation du malware "ConnectBack" pour maintenir ses accés en cas de désactivation du RDP</li>
+        <li>Connexion au serveur de mails (Exchange) pour trouver des informations (@ip et mdp, ....)</li>
+        <li>Prise de controle du matériel audiovisuel: multiplexeur, encodeur, ... (Matériel Cisco avec mot de passe par défaut)</li>
       </ul>
     </section>
+      
+    <section>
+      <h2>Retour technique de l'incident</h2>
+      <p>Par Anonyme (ANSSI)</p>
+      <br>
+      <h3>Phase 2 : Sabottage (Avril 2015)</h3>
+      <ul>
+        <li>Coupure de la diffusion: suppression des firmware présent sur le matériel de diffusion et matériel réseau</li>
+        <li>Defacing du site web et réseau sociaux</li>
+        <li>Suppression des serveurs virtuels (notamment la messagerie) et effacement des données</li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>Retour technique de l'incident</h2>
+      <p>Par Anonyme (ANSSI)</p>
+      <br>
+      <h3>Phase 3 : Analyse</h3>
+      <ul>
+          <li>Récupération du mot de passe de l'administrateur de domaine frauduleux (avec Mimikatz)</li>
+          <li>Connection sur les sessions ouvertes avec "ConnnectBack.dll" pour analyse des actions effectuées</li>
+          <li>Collecte de données :
+          <ul>
+            <li>Journaux (réseau TACAS, ASA, Active Directory, ....), copie disque et mémoire,
+            <li>Serveurs, poste de travail et les équipements spécifique pour la diffusion d'image (linux embarqué)</li>
+            <li>Flashback: forensic mémoire sur l'ensemble du parc</li>
+            <li>Orc2DB: centralisation des données permettant à tout les enquêteurs d'analyser les données</li>
+          </ul>
+      </ul>
+    </section>
+    
+    <section>
+      <h2>Retour technique de l'incident</h2>
+      <p>Par Anonyme (ANSSI)</p>
+      <br>
+      <h3>Phase 4 : Remediation</h3>
+      <ul>
+        <li>Mise en place d'un accès internet filtré (5 PC)</li>
+        <li>Mise en place d'un système de diffusion en boucle de vidéo déjà enregistrée</li>
+        <li>Création d'un environnement de travail minimaliste</li>
+        <li>Définition d'un réseau cloisonné : 50 VRF avec firewall</li>
+        <li>Installation d'un bastion RDP pour les prestataires</li>
+        <li>Durcissement de l'Active Directory: 3 zones (rouge, jaune et verte)</li>
+        <li>Bascule de l'Active Directory compromis vers l'Active Directory sécurisé sans interruption de service</li>
+      </ul>
+        
+    </section>
   
+</section>
+
+<section>
+  <h2>Prochain SSTIC au Couvent des Jacobins</h2>
+  <img src="img/jacobins_rennes.jpg" style="border:0px;width:80%;">
 </section>
 
       </div>

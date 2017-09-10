@@ -83,12 +83,8 @@
 
 <section>
   <h2>Container Image Layer</h2>
-  OS
-  Middleware
-  application
-  <aside class="notes">
-    Build, Ship, and Run Any App, Anywhere
-  </aside>
+  <img src="img/ContainerImageLayer.png" style="border:0px;">
+  <p><b>Container:</b> Build, Ship, and Run <br> any App, Anywhere</p>
 </section>
 
 <section>
@@ -104,22 +100,20 @@
   </tr>
   <tr>
     <td><img src="img/ghost-vulnerability.png" style="width:150px; border:0px;  "></td>
-    <td style="vertical-align:middle;"><span class="fragment fade-in">Ghost (GLibC)<span></td>
+    <td style="vertical-align:middle;"><span class="fragment fade-in">Ghost (Glibc)<span></td>
   </tr>
   </table>
 </section>
 
 <section>
-  <p>Frequently Asked Questions:</p>
+  <h2>Frequently Asked Questions</h2>
   <br>
-  <ul>
-    <li>How many vulnerabilities affect a new containerized application?</li>
-    <br>
-    <li>How many of your containerized applications are concerned by this new vulnerability? </li>
-  </ul>
+  <p>How many vulnerabilities affect this application?</p>
+  <br>
+  <p>How many applications are concerned by this vulnerability?</p>
   <br><br>
   <span class="fragment fade-in">
-  <p>... often without answers</p>
+  <p><i>... often without answers</i></p>
   <span>
 </section>
 
@@ -153,8 +147,14 @@
   <aside class="notes">
     <p> - Static Analysis: dynamic analysis is expensive and unsafe</p>
     <p> - Only once: extract and store enought to inform about known and future vulnerabilities</p>
-    <p> - Notification: webhook</p>
+    <p> - OVAL = open vulnerability and assessment language
+    <p> - Notification: webhook toward container repository, communication tool like Slack, or ticketing system</p>
   </aside>
+</section>
+
+<section>
+  <h2>In a Development Pipeline</h2>
+ <img src="img/SoftwareFactory.png">
 </section>
 
 <section data-state="header1" data-background="img/QuayVulnerabilitiesView.png">

@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Waterfall to DevOps</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+     <style>
+      .FirstSlides{
+          width: 1920px;
+          height: 1080px;
+      }
+      .Title{
+        position:absolute;
+        right:2%;
+        width:80%;
+        top:20%;
+        background-color:rgba(62,62,62,0.5);
+        text-align: right;
+      }
+    </style>
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+        <section data-state="header1" data-background="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h2>Waterfall to DevOps</h1>
+              <h4>September 12<span class="ordinal">th</span>, 2017</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+        </section>
+        
+        <section> 
+          <h2>Waterfall</h2>
+          <p><i>The “traditional” approach</i></p>
+          <img src="img/Waterfall.jpg" style="width:40%; border:0px;">
+          <br>
+          <small>linear and sequential (non-iterative)</small>
+          <aside class="notes">
+              <p> - Le processus traditionellement déployé dans les entreprises est le processus Waterfall</p>
+              <p> - Waterfall est un processus séquentiel et linéaire</p>
+              <p> - Problématique: taux d'insatisfaction important car le client ne vera le résultant qu'à la fin du processus.</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>Agile</h2>
+          <p><i>The iterative approach</i></p>
+          <ul>
+            <li>Manifesto for Agile Software Development (February 2001)</li>
+            <br>
+            <li>Product oriented</li>
+            <br>
+            <li>Cross functional team:
+              <ul>
+                <li>Small team (Two-pizza team)</li>
+                <li>Self-organizing and self-managing</li>
+              </ul>
+              <br>
+            <li>Popular framework: Scrum and Kanban</li>
+          </ul>
+          <aside class="notes">
+            <p> - Changement de paradigme: projet vers produit</p>
+            <p> - <b>Product approach:</b> Avec les méthodes traditionelles, les personnes pensent travailler sur un projet temporaire et que ce sera terminé dans 5 à 6 mois et qu'ils passeront ensuite à un autre projet. La méthode agile utilise une approche produit qui doit être opérationnel pendant de nombreuses années.</p>
+            <p> - <b>Cross functional team:</b> l'équipe est consituée d'un scrum master, product owner et de développeur. La taille de l'équipe est une dizaine de personnes (two pizza team). Cette équipes est autonome.</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>Scrum sprint lifecycle</h2>
+          <img src="img/Scrum Lifecycle.jpg" style="width:80%; border:0px;">
+          <aside class="notes">
+              <p>  - Security tasks in the product backlog</p>
+              <p>  - Security acceptance criteria in Definition of Done</p>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>Agile Security</h2>
+          <ul>
+            <li><b><a href="https://www.thinkmind.org/download.php?articleid=securware_2015_1_50_30099&usg=AFQjCNFcuj9aF6UOYEgG8pcuN7YNzGouEA">Secure Scrum</a></b></li>
+            <br>
+            <li><b>Product backlog:</b></li>
+              <ul>
+                <li>Security-focused stories (<a href="http://safecode.org/publication/SAFECode_Agile_Dev_Security0712.pdf">Safe Code</a>)</li>
+                <li>Evil user stories (<a href="https://www.owasp.org/index.php/Agile_Software_Development:_Don%27t_Forget_EVIL_User_Stories">OWASP</a>) or Abuser stories</li>
+              </ul>
+            <br>
+            <li><b>Sprint backlog:</b> security features will need to be included as applicable for every single sprint backlog feature.</li>
+            <br>
+            <li><b>Definition of Done:</b> include secure acceptance criteria (Source code audit, ...).</li>
+          </ul>
+          <aside class="notes">
+            <p> - <b>Security</b>: secure scrum propose de traiter la sécurité par ajout de task dans le product backlog et ajouter un recette sécurité dans le Defition Of Done.</p>
+          </aside>
+          
+        </section>
+      
+        <section>
+          <h2>Agile Security</h2>
+          <p>Example of user stories</p>
+           <br>
+            <ul>
+            <li><i>As an employee, I can search for other employees by their last name.</i></li>
+            <br>
+            <li><i>As an architect/developer I want to ensure AND as QA I want to verify the user is protected by robust authentication and session management.</i></li>
+            <br>
+            <li><i>As a hacker, I can send bad data in the content of requests, so I can access data and functions for which I'm not authorized.</i></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Agile Security</h2>
+          <br>
+          <div style="text-align: left; float: left; width:50%;">
+          <ul>
+          <li><b>Prevent "cowboy" development:</b></li>
+          <br>
+              <ul>
+                <li>Select framework and write secure guidelines</li>
+                <li>Select development tools and secure its</li>
+            </ul>
+          </ul>          
+          </div>
+
+          <div style="text-align: center; float: right; width:50%;">
+            <img src="img/cowboy_coding.jpg" style="width:50%; border:0px;">
+          </div>
+        </section>
+        
+        <section>
+          <h2>Agile to DevOps</h2>
+          <ul>
+            <li>Close-Knit Collaboration Between Dev and Ops</li>
+            <li>Continous Deployment</li>
+            <li>Agile infrastructure</li>
+          </ul>
+        </section>
+      
+        <section>
+          <h2>DevOps tools chain</h2>
+          <p>Insert img</p>
+        </section>
+        
+        <section>
+          <h1>NoOps</h1>
+          <h4>The end of DevOps</h4>
+          <aside class="notes">
+            <p> - L’infrastructure est automatisée a tel point que l’équipe opérationnelle n’est plus nécessaire pour une application.</p>
+            <p> - Les développeurs peuvent gérer l’infrastructure par de simple API, sans avoir besoin de compétences spécifique.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Book</h2>
+          
+          <div style="text-align: center; float: left; width:50%;">
+            <img src="img/book2.jpg" style="width:47%; border:0px;">
+            <p>Agile Application Security</p>
+            <small>Enabling Security in a Continuous Delivery Pipeline</small>
+          </div>
+
+          <div style="text-align: center; float: right; width:50%;">
+            <img src="img/book1.png" style="width:50%; border:0px;">
+            <p>Securing DevOps</p>
+            <small>Safe services in the Cloud</small>
+          </div>
+        </section>
+
+        <section>
+          <h2>Source</h2>
+          <small>
+            <ul>
+              <li><a href="http://www.scrumguides.org/download.html">Official Scrum Guide</a></li>
+              <li><a href="https://devops.com/">DevOps.com</a></li>
+              <li><a href="https://www.scrumalliance.org/community/articles/2014/april/devops-and-agile">DevOps and Agile: Key Considerations for DevOps and Agile to Coexist for Expedited Delivery</a></li>
+              <li><a href="https://www.scrum.org/forum/scrum-forum/6313/security-issues-scrum">Security issues in SCRUM</a></li>
+              <li><a href="https://arxiv.org/pdf/1507.02992v1.pdf">Secure Scrum: Development of Secure Software with Scrum</a></li>
+              <li><a href="https://www.scrumalliance.org/community/articles/2013/september/agile-user-stories">Agile User Stories: The Building Blocks for Software Project Development Success</a></li>
+              <li><a href="https://dzone.com/articles/definitions-done-practice">Definitions of Done in Practice</a></li>
+              <li><a href="https://www.seguetech.com/waterfall-vs-agile-methodology/">Waterfall vs. Agile: Which is the Right Development Methodology for Your Project?</a></li>
+              <li><a href="https://techbeacon.com/agile-devops-continuous-delivery-evolution-software-delivery">From agile to DevOps to continuous delivery: An evolution in software delivery</a></li>
+              <li><a href="https://www.checkmarx.com/2017/04/20/six-steps-secure-software-development-agile-era/">Six Steps to Secure Software Development in the Agile Era</a></li>
+              <li><a href="http://safecode.org/publication/SAFECode_Agile_Dev_Security0712.pdf">Practical security stories and security tasks for agile development environments</a></li>
+              <li><a href="https://www.owasp.org/index.php/Agile_Software_Development:_Don%27t_Forget_EVIL_User_Stories">Evil user story by OWASP</a></li>
+              <li><a href="https://www.xmatters.com/devops/how-to-create-a-successful-noops-team/">How to Create a Successful NoOps Team</a></li>
+            </ul>
+          </small>
+        </section>
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        
+        multiplex: {
+          secret: '15043360491328082451',
+          id: '8636505775e3da0d',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

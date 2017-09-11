@@ -48,6 +48,12 @@
               <p><small>By Didier BERNAUDEAU</small></p>
             </div>
           </div>
+          <aside class="notes">
+            <p> - Il est très difficile d’apporter une défition au terme « DevOps ».</p>
+            <p> - C’est un concept relativement simple qui consiste à rapprocher les développeurs et les opérationnels.</p>
+            <p> - Cependant, DevOps à des impacts non négligeable pour une DSI : organisation, architecture, nouvelles technologies et bien sûre pour la sécurité.</p>
+            <p> - Donc pour cette première présentation sur le sujet, je vous propose d’aborder la gestion de projet « Waterfall to DevOps ».</p>
+          </aside>
         </section>
         
         <section> 
@@ -57,9 +63,10 @@
           <br>
           <small>linear and sequential (non-iterative)</small>
           <aside class="notes">
-              <p> - Le processus traditionellement déployé dans les entreprises est le processus Waterfall</p>
-              <p> - Waterfall est un processus séquentiel et linéaire</p>
-              <p> - Problématique: taux d'insatisfaction important car le client ne vera le résultant qu'à la fin du processus.</p>
+            <p>Cette méthode traditionnelle date des années 1970</p>
+            <p>C’est une méthode séquentiel et linéaire.</p>
+            <p>La sécurité s’est intégrée au fils des années.</p>
+            <p>Cette méthode est relativement contreversée car le taux d’insatisfaction est important. Le client ne verra le résultant qu'à la fin du processus.</p>
           </aside>
         </section>
         
@@ -69,6 +76,8 @@
           <ul>
             <li>Manifesto for Agile Software Development (February 2001)</li>
             <br>
+            <li>Popular framework: Scrum and Kanban</li>
+            <br>
             <li>Product oriented</li>
             <br>
             <li>Cross functional team:
@@ -76,13 +85,13 @@
                 <li>Small team (Two-pizza team)</li>
                 <li>Self-organizing and self-managing</li>
               </ul>
-              <br>
-            <li>Popular framework: Scrum and Kanban</li>
           </ul>
           <aside class="notes">
-            <p> - Changement de paradigme: projet vers produit</p>
-            <p> - <b>Product approach:</b> Avec les méthodes traditionelles, les personnes pensent travailler sur un projet temporaire et que ce sera terminé dans 5 à 6 mois et qu'ils passeront ensuite à un autre projet. La méthode agile utilise une approche produit qui doit être opérationnel pendant de nombreuses années.</p>
-            <p> - <b>Cross functional team:</b> l'équipe est consituée d'un scrum master, product owner et de développeur. La taille de l'équipe est une dizaine de personnes (two pizza team). Cette équipes est autonome.</p>
+            <p> - La méthode agile à fait sont apparition officiellement en 2001</p>
+            <p> - Il existe de nombreux framework pour l’implémenter : Scrum, kanban, …</p>
+            <p> - Changement de paradigme: C’est une méthode orienté produit (et pas projet)</p>
+            <p> - L’équipe est autonome</p>
+            <p> - Maximum 12 personnes</p>
           </aside>
         </section>
         
@@ -90,8 +99,11 @@
           <h2>Scrum sprint lifecycle</h2>
           <img src="img/Scrum Lifecycle.jpg" style="width:80%; border:0px;">
           <aside class="notes">
-              <p>  - Security tasks in the product backlog</p>
-              <p>  - Security acceptance criteria in Definition of Done</p>
+              <p> - Le <u>Product Owner</u> définie les <u>users stories</u> dans le <u>product backlog</u></p>
+              <p> - Le sprint commence avec le <u>sprint planning</u> pour définir les taches à effectuer dans le <u>Sprint Backlog</u>.</p>
+              <p> - Le sprint abouti à une évolution du produit potentiellement livrable en production.</p>
+              <p> - Le processus est itérative avec des sprints durant 2 à 3 semaines.</p>
+              <p> - Le produit sera livré en production lors de la <u>release</u> après plusieurs sprints.</p>
           </aside>
         </section>
         
@@ -111,7 +123,14 @@
             <li><b>Definition of Done:</b> include secure acceptance criteria (Source code audit, ...).</li>
           </ul>
           <aside class="notes">
-            <p> - <b>Security</b>: secure scrum propose de traiter la sécurité par ajout de task dans le product backlog et ajouter un recette sécurité dans le Defition Of Done.</p>
+            <p> - La méthode agile à un défaut majeur puisque la sécurité n’est pas abordée par le manifesto d’origine.</p>
+            <p> - "Secure Scrum" est une extension à Scrum permettant de traiter brièvement la sécurité.</p>
+            <p> - L’<u>intégration de la sécurité</u> dans scrum se fait à <u>3 niveaux</u>:</p>
+            <ul>
+              <li>Product backlog</li>
+              <li>Sprint backlog</li>
+              <li>Definition of done (Chaque user story doit avoir ses critères de sécurité)</li>
+            </ul>
           </aside>
           
         </section>
@@ -121,12 +140,20 @@
           <p>Example of user stories</p>
            <br>
             <ul>
-            <li><i>As an employee, I can search for other employees by their last name.</i></li>
+            <li class="fragment current-visible"><i>As an employee, I can search for other employees by their last name.</i></li>
             <br>
-            <li><i>As an architect/developer I want to ensure AND as QA I want to verify the user is protected by robust authentication and session management.</i></li>
+            <li class="fragment current-visible"><i>As an architect/developer I want to ensure AND as QA I want to verify the user is protected by robust authentication and session management.</i></li>
             <br>
-            <li><i>As a hacker, I can send bad data in the content of requests, so I can access data and functions for which I'm not authorized.</i></li>
+            <li class="fragment current-visible"><i>As a hacker, I can send bad data in the content of requests, so I can access data and functions for which I'm not authorized.</i></li>
           </ul>
+          <aside class="notes">
+            <p>Ce slide permet seulement d’illustrer ce qu’est une user story :</p>
+            <ul>
+              <li>La première est une exemple de classique</li>
+              <li>La seconde est une Security-focused stories</li>
+              <li>et la troisième, une evil user stories</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -146,28 +173,57 @@
           <div style="text-align: center; float: right; width:50%;">
             <img src="img/cowboy_coding.jpg" style="width:50%; border:0px;">
           </div>
+          
+          <aside class="notes">
+            <p> - Agile et DevOps ont parfois une <u>mauvaise réputation</u> à cause des dérives : cowboy developement.</p>
+            <p> - Pour y remédier, la DSI doit définir les framework à utiliser accompagné de ses guides d’utilisation.</p>
+            <p> - Il faut également définir les outils qui seront mis à disposition des développeurs et il faut évidement les sécuriser.</p>
+          </aside>
         </section>
         
         <section>
           <h2>Agile to DevOps</h2>
+          <br>
           <ul>
-            <li>Close-Knit Collaboration Between Dev and Ops</li>
             <li>Continous Deployment</li>
-            <li>Agile infrastructure</li>
+            <br>
+            <li>Organization:</li>
+            <ul>
+              <li>Close-knit collaboration between Dev and Ops</li>
+              <li>Dev and Ops in one team</li>
+            </ul>
           </ul>
+          <aside class="notes">
+            <p> - La principale évolution est la livraison continu en production.</p>
+            <p> - A l'origine, la méthode agile impose un planning de release pour livrer en production</p>
+            <p> - En terme d’organisation, il y a 2 options :</p>
+            <ul>
+              <li>Collaboration : coopération très forte avec les ops (via le scrum master)</li>
+              <li>Fusion : les ops rejoignent l’équipe de dev</li>
+            </ul>
+          </aside>
         </section>
       
         <section>
           <h2>DevOps tools chain</h2>
-          <p>Insert img</p>
+          <img src="img/DevOpsToolchain.jpg" style="width:100%; border:0px;">
         </section>
         
         <section>
           <h1>NoOps</h1>
           <h4>The end of DevOps</h4>
+          <br>
+          <small>
+          <ul>
+            <li>Serverless architecture</li>
+            <li>CloudNative</li>
+            <li>Agile infrastructure</li>
+            <li>IAC (Infrastructure As Code)</li>
+          </ul>
+          </small>
           <aside class="notes">
-            <p> - L’infrastructure est automatisée a tel point que l’équipe opérationnelle n’est plus nécessaire pour une application.</p>
-            <p> - Les développeurs peuvent gérer l’infrastructure par de simple API, sans avoir besoin de compétences spécifique.</p>
+            <p> - Désormais, l’infrastructure est automatisée à tel point que l’équipe opérationnelle n’est plus réellement nécessaire pour une application.</p>
+            <p> - Les développeurs peuvent gérer l’infrastructure par de simples API, sans avoir besoin de compétences spécifique.</p>
           </aside>
         </section>
 

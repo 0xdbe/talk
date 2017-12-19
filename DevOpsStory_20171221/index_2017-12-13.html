@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>DevOpsStory_20171221</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    
+    <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:2%;
+        width:70%;
+        top:20%;
+        background-color:rgba(46,89,82,0.5);
+        text-align: right;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+        <section data-state="header1" data-background="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>DevOps Story</h1>
+              <h4>December 21<span class="ordinal">st</span>, 2017</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+        </section>
+  
+        <section>
+          <section>
+            <h3>Cash Registers Unlimited Company</h3>
+            <br>
+            <p>Société international créée en 1973</p>
+            <br>
+            <p>Fabriquant et revendeur de caisse enregistreuse</p>
+            <p>Editeur de logiciel comptable</p>
+          </section>
+        
+          <section>
+            <h3>Désormais, la situation est grave</h3>
+            <ul>
+              <li>Perte de part de marché depuis 2013</li>
+              <li>Difficulité face aux nouveaux concurrents</li>
+              <li>Echec du projet "SAAS" débuté en 2015</li>
+            </ul>
+            <br><br>
+            <span class="fragment fade-in">
+              <h3>Votre mission :</h3>
+              <p>Mettre en oeuvre le "Cash Register 2.0"</p>
+              </span>
+            <aside class="notes">
+              <p>Le Cash Register est la solution pour sauver l'entreprise</p>
+              <p>C'est une solution connectée proposant des fonctionnalités avancées pour les commerçants</p>
+            </aside>
+          </section>
+
+          <section>
+            <p>Si vous échouez: <br> le développement et la production informatique seront sous-traités !</p>
+            <br>
+            <p class="fragment fade-in">Vous reportez directement au CEO <br> (Le CIO ne fait plus partie des effectifs depuis hier)</p>
+            <br>
+            <p class="fragment fade-in">Vous serez accompagné d'un consultant, aux pratiques bien étranges, <br> venant d'un cabinet de conseil renommé (mandaté par le conseil d'administration)</li>
+          </section>
+        </section>
+
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #1</h1>
+            <p>Qu’est-ce que DevOps ?</p>
+            <ul>
+              <li>A/ Une alternative à ITIL (IT Infrastructure Library)</li>
+              <li>B/ Des principes de management</li>
+              <li>C/ Le déploiement continu</li>
+              <li>D/ Une alternative aux méthodes agiles</li>
+            </ul>
+          </section>
+        
+          <section>
+            <h2>Three Ways</h2>
+            <p>1 - System Thinking</p>
+            <img src="img/Three Ways - 1.png" style="width:70%; border:0px;">
+            <aside class="notes">
+              Suivre le processus de bout en bout et pas en silo (business > Dev > ops)
+            </aside>
+          </section>
+        
+          <section>
+            <h2>Three Ways</h2>
+            <p>2 - feedback loop</p>
+            <img src="img/Three Ways - 2.png" style="width:70%; border:0px;">
+            <aside class="notes">
+              Permettre aux Ops de faire un retour aux Dev
+            </aside>
+          </section>
+
+          <section>
+            <h2>Three Ways</h2>
+            <p>3 - Culture of continual Experimentation and Learning</p>
+            <img src="img/Three Ways - 3.png" style="width:70%; border:0px;">
+            <aside class="notes">
+              tester, apprendre, améliorer, ...
+            </aside>
+          </section>
+        </section>
+
+        <!--###########################-->
+        
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #2</h1>  
+            <p>Quelle est le nombre maximum de personnes dans une équipe DevOps ?</p>
+            <ul>
+              <li>A/ 6</li>
+              <li>B/ 10</li>
+              <li>C/ 15</li>
+              <li>D/ 25</li>
+            </ul>
+          </section>
+        
+          <section>
+            <h3>DevOps Team</h3>
+            <br>
+            <ul>
+              <li>Small team (Two-pizza team)</li>
+              <li>Cross functional team</li>
+              <li>Self-organizing</li>
+              <li>self-managing</li>
+            </ul>
+            <aside class="notes">
+              <p>10 personnes maximum est le résultat de l'étude mené par Jeff Bezos</p>
+              <p>Favorise la cohésion, évite les "sous groupe"</p>
+              <p>Diminue le stress et la frustration</p>
+              <p>http://blog.idonethis.com/two-pizza-team/</p>
+            <aside>
+          </section>
+        </section>
+        
+        <!--###########################-->
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #3</h1>
+            <p>Quelle organisation adopter ?</p>
+            <ul>
+              <li>A/ Collaboration rapprochée Dev & Ops</li>
+              <li>B/ Fusion Dev & Ops en une seule équipe</li>
+              <li>C/ Peu importe</li>
+            </ul>
+            <aside class="notes">
+              <p>Peu importe du moment que les Dev et les Ops Partage les mêmes objectifs</p>
+              <p>Comment partage les mêmes objectifs ? puis on enchaine sur le backlog</p>
+            </aside>
+          </section>
+        
+          <section>
+            <h3>DevOps Team</h3>
+            <p>2 organisations possibles: Collaboration ou Fusion (NoOps)</p>
+            <br>
+            <span class="fragment fade-in">
+            <p>Experts are not in the DevOps team:</p>
+            <ul>
+              <li>Expert-as-a-Service (ExaaS)</li>
+              <li>CaaS (Consulting-as-a-Service)</li>
+              <li>"Good enough expertise"</li>
+            </ul>
+            <span>
+          </section>
+        </section>
+        
+        <!--###########################-->
+        
+        <section data-background-color="#ff0000">
+          <h1>Question #4</h1>
+          <p>Quelle est la vision d'une équipe DevOps ?</p>
+          <ul>
+          <li>A/ Projet</li>
+          <li>B/ Produit</li>
+          </ul>
+          <aside class="notes">
+            Dans certaines sociétés, les personnes sont encore objectivées sur la réalisation et l'achèvement d'un projet!
+            Sans prendre en compte le fonctionnement et la maintenance à long terme.
+          <aside>
+        </section>
+        
+        <!--###########################-->
+        
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #5</h1>
+            <p>Comment mettre en place le System Thinking ?</p>
+            <ul>
+              <li>A/ Scrum</li>
+              <li>B/ La RACHE</li>
+              <li>C/ Kanban</li>
+              <li>D/ Waterfall</li>
+            </ul>
+          </section>
+        
+          <section>
+            <h2>La RACHE</h2>
+            <img src="img/Methode La Rache.jpg" style="width:50%; border:0px;">
+          </section>
+          
+          <section>
+            <h2>Waterfall</h2>
+            <img src="img/Waterfall.jpg" style="width:50%; border:0px;">
+          </section>
+                
+          <section>
+            <h2>Kanban board</h2>
+            <img src="img/kanban avec postit.jpg" style="width:50%; border:0px;">
+            <aside class="notes">
+              <ul>
+                <li>Kanban board</li>
+                <li>WIP: work in progress</li>
+                <li>+ WIP limit => Theory of constraints</li>
+                <li>Pour Cash Register unlimited, il s'agit d'un simple tableau blanc. Si vous avez un peu plus de moyen et de temps, vous pouvez mettre en place des outils informatiques (JIRA et autre)</li>
+                <li>Il va maintenant falloir le remplir</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+        
+        <!--###########################-->
+
+        <section>
+          <h1>Backlog</h1>
+        </section>
+        
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #3</h1>
+            <p>Qui est responsable d'un Product Backlog ?</p>
+            <ul>
+              <li>A/ Le product owner</li>
+              <li>B/ Le scrum master</li>
+              <li>C/ Le sponsor</li>
+              <li>D/ Les développeurs</li>
+            </ul>
+          </section>
+        
+        <section>
+          <h2>Product Backlog</h2>
+          + image du tableau avec les post-it
+          Le product backlog est géré par le PO
+          Niveau de Backlog : Portfolio > Solution > Programme > Team
+          Epic vs User Stories
+          User / Security focused / Abuser stories
+        </section>
+        
+        
+        <section data-background-color="#ff0000">
+          <h1>Question #4</h1>  
+          <p>Que doit contenir le Backlog ?</p>
+          <ul>
+          <li>A/ Seulement les fonctionnalités minimale</li>
+          <li>B/ Toutes les fonctionnalités attendues priorisées</li>
+          </ul>
+        </section>
+        
+        <section>
+          MVP + MVS : pour la première release de notre cash register
+          Exemple de EPIC + 3 user stories dont 1 sécurité.
+          + photo avec les post it priorisé
+        </section>
+
+        <section>
+          commençons le développement, mais avec quoi ?
+          Les framework que je connais
+          Les framework que les développeurs connaissent
+          Les framework compatible avec l'infrastructure
+        </section>
+        
+        <section>
+         sondage : quel framework ?
+        </section>
+        
+        <section>
+        Testing:
+        Comment effectuer les tests de sécurités
+        - Pentester sur des release majeurs
+        - Secure TDD/BDD
+        
+        </section>
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        multiplex: {
+          secret: '15123048770077207202',
+          id: '6acf985aa5f95b8e',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
+
+<!--
+        <section>       
+          <small>
+          <ul>
+            <li>Application mobile fonctionnant sur tablette ou mobile Android</li>
+            <li>Terminal de paiement Bluetooth</li>
+            <li>Catalogue Produit et Référentiel client</li>
+            <li>Programme de fidélité (Coupon)</li>
+            <li>Comptabilités automatiques (calcul TVA collectée, ...)</li>
+            <li>...</li>
+          </ul>
+          </small>
+        </section>-->
+        
+        

@@ -20,7 +20,7 @@
       link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
-    
+
     <style>
       .FirstSlides{
           width: 1280px;
@@ -35,83 +35,496 @@
         text-align: right;
       }
     </style>
-    
+
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-      
+
         <section data-state="header1" data-background="img/background.jpg">
           <div class="FirstSlides">
             <div class="Title">
               <h1>DevOps Story</h1>
               <h4>December 21<span class="ordinal">st</span>, 2017</h4>
-              <p><small>By Didier BERNAUDEAU and Aroua BIRI</small></p>
+              <p><small>By Didier BERNAUDEAU</small></p>
             </div>
           </div>
         </section>
-      
+
+        <!--###################################################################
+                              Présentation de la mission
+        ####################################################################-->
+
         <section>
-          <h3>Cash Registers Unlimited Company</h3>
-          
-          <ul>
-            <li>Créée en 1973</li>
+          <section>
+            <h3>Cash Registers Unlimited Company</h3>
             <br>
-            <li>Activité:</li>
-              <ul>
-                <li>Fabriquant et revendeur de caisse enregistreuse</li>
-                <li>Editeur de logiciel comptable</li>
-              </ul>
+            <p>Société international créée en 1973</p>
             <br>
-            <li>Situation fin 2017:</li>
+            <p>Fabriquant et revendeur de caisse enregistreuse</p>
+            <p>Editeur de logiciel comptable</p>
+          </section>
+
+          <section>
+            <h3>Désormais, la situation est grave</h3>
+            <ul>
+              <li>Perte de part de marché depuis 2013</li>
+              <li>Difficulité face aux nouveaux concurrents</li>
+              <li>Echec du projet "SAAS" débuté en 2015</li>
+            </ul>
+            <br><br>
+            <span class="fragment fade-in">
+              <h3>Votre mission :</h3>
+              <p>Mettre en oeuvre le "Cash Register 2.0"</p>
+              </span>
+            <aside class="notes">
+              <p>Le Cash Register est la solution pour sauver l'entreprise</p>
+              <p>C'est une solution connectée proposant des fonctionnalités avancées pour les commerçants</p>
+            </aside>
+          </section>
+
+          <section>
+            <p>Si vous échouez: <br> le développement et la production informatique seront sous-traités !</p>
+            <br>
+            <p class="fragment fade-in">Vous reportez directement au CEO <br> (Le CIO ne fait plus partie des effectifs depuis hier)</p>
+            <br>
+            <p class="fragment fade-in">Vous serez accompagné d'un consultant, aux pratiques bien étranges, <br> venant d'un cabinet de conseil renommé (mandaté par le conseil d'administration)</li>
+          </section>
+
+          <section>
+            <h2>Planning</h2>
+            <br>
+            <p>Avril 2018: première démonstration au conseil d'administration</p>
+            <br>
+            <p>Juin 2018: mise en production</p>
+          </section>
+
+        </section>
+
+        <!--###################################################################
+                                Question 1
+        ####################################################################-->
+
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #1</h1>
+            <p>Qu’est-ce que DevOps ?</p>
+            <ul>
+              <li>A/ Une alternative à ITIL (IT Infrastructure Library)</li>
+              <li>B/ Des principes de management</li>
+              <li>C/ Le déploiement continu</li>
+              <li>D/ Une alternative aux méthodes agiles</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Three Ways</h2>
+            <p>1 - System Thinking</p>
+            <img src="img/Three Ways - 1.png" style="width:70%; border:0px;">
+            <aside class="notes">
+              Suivre le processus de bout en bout et pas en silo (business > Dev > ops)
+            </aside>
+          </section>
+
+          <section>
+            <h2>Three Ways</h2>
+            <p>2 - feedback loop</p>
+            <img src="img/Three Ways - 2.png" style="width:70%; border:0px;">
+            <aside class="notes">
+              Permettre aux Ops de faire un retour aux Dev
+            </aside>
+          </section>
+
+          <section>
+            <h2>Three Ways</h2>
+            <p>3 - Culture of continual Experimentation and Learning</p>
+            <img src="img/Three Ways - 3.png" style="width:70%; border:0px;">
+            <aside class="notes">
+              tester, apprendre, améliorer, ...
+            </aside>
+          </section>
+        </section>
+
+        <!--###################################################################
+                                Question 2
+        ####################################################################-->
+
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #2</h1>
+            <p>Comment mettre en place le System Thinking ?</p>
+            <ul>
+              <li>A/ Scrum</li>
+              <li>B/ La RACHE</li>
+              <li>C/ Kanban</li>
+              <li>D/ Waterfall</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Kanban board</h2>
+            <img src="img/Kanban_board.jpg" style="width:60%; border:0px;">
+            <p>WIP (Work In Progress)</p>
+          </section>
+
+          <section>
+            <h2>Kanban board</h2>
+            <img src="img/Kanban_board_with_limit.jpg" style="width:60%; border:0px;">
+            <p>WIP Limit: Theory Of Constraints</p>
+            <aside class="notes">
               <ul>
-                <li>Perte de part de marché depuis 2013</li>
-                <li>Difficulité face aux nouveaux concurrents (Solution SAAS, caisse enregistreuse connectée, ...)</li>
-                <li>Echec du projet majeur en 2015 pour proposer une offre SAAS !</li>
+                <li>Tools: JIRA, Taiga.io, ...</li>
+                <li>Transition: il va maintenant falloir remplir ce tableau</li>
               </ul>
-          </lu>
+            </aside>
+          </section>
+
         </section>
-        
+
+        <!--###################################################################
+                                Question 3
+        ####################################################################-->
+
         <section>
-          <h3>Votre mission</h3>
-          
-          <p>Mettre en oeuvre le "Cash Register 2.0"</p>
-          
-          <br>
-          
-          <small>
-          <ul>
-            <li>Application mobile fonctionnant sur tablette ou mobile Android</li>
-            <li>Terminal de paiement Bluetooth</li>
-            <li>Catalogue Produit et Référentiel client</li>
-            <li>Programme de fidélité (Coupon)</li>
-            <li>Comptabilités automatiques (calcul TVA collectée, ...)</li>
-            <li>...</li>
-          </ul>
-          </small>
-          
-          <br>
-          
-          <p class="fragment fade-in">Si vous échouez: <br> le développement et la production informatique seront sous-traités !</p>
-        
+
+          <section data-background-color="#ff0000">
+            <h1>Question #3</h1>
+            <p>Comment décrire les actions à réaliser ?</p>
+            <ul>
+              <li>A/ User Stories</li>
+              <li>B/ Cahier des charges</li>
+              <li>C/ Expression des besoins</li>
+              <li>D/ Ticket</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Users Stories</h2>
+            <ul>
+              <li><b>User Story:</b><br><i>En tant que commercant, je peux ajouter un article dans mon catalogue.</i></li>
+              <br>
+              <li><b>Security User Stories</b>:<br><i>En tant que commercant, je peux habiliter mes vendeurs.</i></li>
+              <br>
+              <li><b>Abuser Story (Evil Story)</b>:<br><i>En tant que pirate, je peux modifier le prix d'un article.</i></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Users Stories</h2>
+            <br>
+            <ul>
+              <li>DOD (Definition of Done)</li>
+              <li>Acceptance criteria</li>
+              <br>
+              <li>Epic Story</li>
+              <br>
+              <li>Backlog</li>
+            </ul>
+            <aside class="notes">
+              Transition: mainteant que nous savons quoi faire, il faut les personnes
+            </aside>
+          </section>
+
+          <section>
+            <h2>Backlog for Cash Register 2.0</h2>
+            <div style="text-align: left; float: left; width:50%;">
+              <p><b>Caisse Enregistreuse</b></p>
+              <span class="fragment fade-in">
+                <small>
+                <ul>
+                  <li>Application Android</li>
+                  <li>Creer de factures et devis</li>
+                  <li>Encaissement Espèces, Chèque et Carte bancaire</li>
+                  <li>Facilité de paiement (3 fois sans frais, ...)</li>
+                  <li>Gestion des retours client</li>
+                  <li>...</li>
+                </ul>
+                </small>
+              </span>
+              <p><b>Catalogue</b></p>
+              <span class="fragment fade-in">
+                <small>
+                <ul>
+                  <li>Gestion des articles et prestation</li>
+                  <li>Gestion des stocks</li>
+                  <li>Définition du taux de TVA et du taux de marge</li>
+                  <li>Ajout de photo des articles</li>
+                  <li>Gestion des promotions</li>
+                  <li>...</li>
+                </ul>
+                </small>
+              </span>
+            </div>
+            <div style="text-align: left; float: right; width:50%;">
+              <p><b>Réferentiel Client</b></p>
+              <span class="fragment fade-in">
+                <small>
+                <ul>
+                  <li>Gestion des clients</li>
+                  <li>Relation entre les personnes (Enfant, Parent, ...)</li>
+                  <li>Information de parrainage client</li>
+                  <li>...</li>
+                </ul>
+                </small>
+              </span>
+              <p><b>Fidélité</b></p>
+              <span class="fragment fade-in">
+                <small>
+                <ul>
+                  <li>Système à point (10€ = 1 point)</li>
+                  <li>Système par article (10 articles = 1 article offerts)</li>
+                  <li>...</li>
+                </ul>
+                </small>
+              </span>
+              <p><b>Comptabilité</b></p>
+              <span class="fragment fade-in">
+                <small>
+                <ul>
+                  <li>Gestion des impayés</li>
+                  <li>Calcul TVA collectée</li>
+                  <li>Accès compte bancaire (Open Banking)</li>
+                  <li>...</li>
+                </ul>
+                </small>
+              </span>
+            </div>
+          </section>
+
+          <section>
+            <h2>MVP (Minimum Viable Product)</h2>
+            <br><br>
+            <h2 class="fragment fade-in">MVS (Minimum Viable Security)</h2>
+          </section>
+
         </section>
-        
+
+
+        <!--###################################################################
+                                Question 4
+        ####################################################################-->
+
         <section>
-          <p>Vous reportez directement au CEO <br> (Le CIO ne fait plus partie des effectifs depuis hier)</p>
-          <br>
-          <p>Vous serez accompagné d'un consultant, aux pratiques bien étranges, venant d'un cabinet de conseil renommé (mandaté par le conseil d'administration)</li>
+          <section data-background-color="#ff0000">
+            <h1>Question #4</h1>
+            <p>Quelle organisation adopter ?</p>
+            <ul>
+              <li>A/ Collaboration rapprochée Dev et Ops</li>
+              <li>B/ Fusion Dev et Ops en une seule équipe</li>
+              <li>C/ Créer une 3ème équipe entre les Dev et les Ops</li>
+              <li>D/ Peu importe</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>DevOps Team</h3>
+            <div style="text-align: right; float: left; width:50%;">
+              <br>
+              <p>Cross functional team</p>
+              <br><br>
+              <p>Close-knit collaboration</p>
+              <br><br>
+              <p>DevOps Team</p>
+            </div>
+            <div style="text-align: center; float: right; width:50%;">
+              <img src="img/Team_Pattern1.jpg" style="width:20%; border:0px;">
+              <br>
+              <img src="img/Team_Pattern2.jpg" style="width:50%; border:0px;">
+              <br>
+              <img src="img/Team_Pattern3.jpg" style="width:70%; border:0px;">
+            </div>
+            <aside class="notes">
+              Transition: Pour notre cas, nous retiendrons une équipe "cross functional team"
+            </aside>
+          </section>
         </section>
-        
-        <section data-background-color="#ff0000">
-        <h1>Question #1</h1>
-        <p>Qu’est-ce que DevOps ?</p>
-        <ul>
-          <li>A/ Une alternative à Agile</li>
-          <li>B/ Une alternative à ITIL / ITSM</li>
-          <li>C/ Une culture / philosophie</li>
-          <li>D/ Cowboy coding</li>
-        </ul>
+
+        <!--###################################################################
+                                Question 5
+        ####################################################################-->
+
+        <section>
+          <section data-background-color="#ff0000">
+            <h1>Question #5</h1>
+            <p>Quelle est le nombre maximum de personnes dans une telle équipe ?</p>
+            <ul>
+              <li>A/ 6</li>
+              <li>B/ 10</li>
+              <li>C/ 15</li>
+              <li>D/ 25</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Cross functional team</h3>
+            <br>
+            <ul>
+              <li>Small team (Two-pizza team)</li>
+              <li>Self-organizing</li>
+              <li>self-managing</li>
+            </ul>
+            <aside class="notes">
+              <p>10 personnes maximum est le résultat de l'étude mené par Jeff Bezos</p>
+              <p>Favorise la cohésion, évite les "sous groupe"</p>
+              <p>Diminue le stress et la frustration</p>
+              <p>http://blog.idonethis.com/two-pizza-team/</p>
+            <aside>
+          </section>
+
+          <section>
+            <h2>Experts</h2>
+            <small><i>Software architect, technical architect, functional architect, Security, ...</i></small>
+            <br>
+            <p>Transversal team in a DevOps organisation</p>
+            <ul>
+              <li>ExaaS (Expert-as-a-Service)</li>
+              <li>CaaS (Consulting-as-a-Service)</li>
+            </ul>
+            <br><br>
+            <p>"Good enough expertise"</p>
+          </section>
+       </section>
+
+        <!--###################################################################
+                                Question 6
+        ####################################################################-->
+
+        <section>
+
+          <section data-background-color="#ff0000">
+            <h1>Question #6</h1>
+            <p>Quelle est la finalité d'une équipe DevOps ?</p>
+            <ul>
+            <li>A/ Projet</li>
+            <li>B/ Produit</li>
+            <li>C/ Fonctionnalité</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Product or Feature Team</h2>
+            <p>Changement d'organisation majeur:</p>
+            <ul>
+              <li>Abandon du système de gestion de projet traditionnel (budget, comité, ...)</li>
+              <li>Prise en compte de la culture DevOps dans les objectifs des collaborateurs ()</li>
+            </ul>
+            <aside class="notes">
+              Transition: comment organiser les équipes ?
+            <aside>
+          </section>
+
+          <section>
+            <h2>Organisation des équipes</h2>
+            <img src="img/ProgramAndTeam.jpg" style="width:50%; border:0px;">
+            <aside class="notes">
+              Team backlog: contient également les expérimentations et les exigences non fonctionnelle (vulnérabilité à corriger)
+            <aside>
+          </section>
+
+          <section>
+            <h2>Developpement Rythmé</h2>
+            <img src="img.jpg" style="width:50%; border:0px;">
+          </section>
+
         </section>
+
+        <!--###################################################################
+                                Question 7
+        ####################################################################-->
+
+        <section>
+
+          <section data-background-color="#ff0000">
+            <h1>Question #7</h1>
+            <p>Quelle architecture adopter pour le DevOps ?</p>
+            <ul>
+            <li>A/ MVC</li>
+            <li>B/ Microservice</li>
+            <li>C/ Monolithique</li>
+            <li>D/ Architecture orientée service</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Les microservices</h2>
+            <ul>
+              <li>Attention au anti-pattern (Syndrome du plat de spaghettis)</li>
+              <li>Orchestrateur (exemple: Conductor)</li>
+              <li>Authentification</li>
+              <ul>
+                <li>OAuth 2.0</li>
+                <li>JWT (Json Web Token)</li>
+              </ul>
+            </ul>
+          </section>
+
+        </section>
+
+        <!--###################################################################
+                                Question 8
+        ####################################################################-->
+
+        <section>
+
+          <section data-background-color="#ff0000">
+            <h1>Question #8</h1>
+            <p>Quel framework utilisé ?</p>
+            <ul>
+              <li>A/ Le framework que je connais</li>
+              <li>B/ Le framework que les développeurs connaissent</li>
+              <li>C/ Le framework validé au sein de la société</li>
+              <li>D/ Le tous dernier framework</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Framework validé au sein de la société</h2>
+
+            <ul>
+              <li>Maitrisé par tous, y compris la production et la sécurité</li>
+              <li>Compatible avec l'infrastructure existante</li>
+              <li>Suivre les bonnes pratique de developpement sécurisé</li>
+          </section>
+
+        </section>
+
+        <!--###################################################################
+                                Question 9
+        ####################################################################-->
+
+        <section>
+
+          <section data-background-color="#ff0000">
+            <h1>Question #9</h1>
+            <p>Quelle est la méthode indispensable pour se prémunir d'une injection de code (type XSS) ?</p>
+            <ul>
+              <li>A/ Filtrer en entrée</li>
+              <li>B/ Encoder en sortie</li>
+              <li>C/ Peu importe, les frameworks s'en charge</li>
+            </ul>
+            <aside class="notes">
+              Même si les développeurs savent faire du Secure Coding, il va falloir controler
+            <aside>
+          </section>
+
+          <section>
+            <h2>Developpement tools</h2>
+            <img src="img/PeriodicTable.png" style="width:70%; border:0px;">
+            <p>2 pipeline : Front et Back</p>
+          </section>
+          
+          <section>
+            <h2>Security tools</h2>
+            <ul>
+              <li>Linter (ESlint Security)</li>
+              <li>Source code audit (Sonar Security Rules)</li>
+              <li>Security Mock (Mockito & Spring Security</li>
+              <li>Secure TDD & BDD (BDD-Security with Cucumber.js )
+            </ul>
+          </section>
+          
+        </section>
+
       </div>
     </div>
 
@@ -156,3 +569,17 @@
     </script>
   </body>
 </html>
+
+<!--
+        <section>
+          <small>
+          <ul>
+            <li>Application mobile fonctionnant sur tablette ou mobile Android</li>
+            <li>Terminal de paiement Bluetooth</li>
+            <li>Catalogue Produit et Référentiel client</li>
+            <li>Programme de fidélité (Coupon)</li>
+            <li>Comptabilités automatiques (calcul TVA collectée, ...)</li>
+            <li>...</li>
+          </ul>
+          </small>
+        </section>-->

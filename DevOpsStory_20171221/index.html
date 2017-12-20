@@ -49,6 +49,10 @@
               <p><small>By Didier BERNAUDEAU</small></p>
             </div>
           </div>
+          <aside class="notes">
+          Pour aborder ensemble le sujet DevOps, je vous propose une présentation interactive dans laquelle vous devrez intervenir pour faire vos propres choix.
+          Avant de commencer, nous allons lancer le jeux puis je vous présenterez le contexte.
+          <aside>
         </section>
 
         <!--###################################################################
@@ -94,9 +98,11 @@
           <section>
             <h2>Planning</h2>
             <br>
-            <p>Avril 2018: première démonstration au conseil d'administration</p>
+            <p>Mai 2018*: première démonstration au conseil d'administration</p>
             <br>
-            <p>Juin 2018: mise en production</p>
+            <p>Juin 2018*: Commercialisation de l'offre</p>
+            <br>
+            <small>* ce n'est pas précisé, mais c'est début ;)</small>
           </section>
 
         </section>
@@ -122,16 +128,20 @@
             <p>1 - System Thinking</p>
             <img src="img/Three Ways - 1.png" style="width:70%; border:0px;">
             <aside class="notes">
-              Suivre le processus de bout en bout et pas en silo (business > Dev > ops)
+              <ul>
+              <li>L'objectif du system Thinking est de mettre en place un processus de bout en bout</li>
+              <li>Entre le Dev (représentant le business) et les Ops (Représentant le client)</li>
+              <li>Fin des 2 silos: Dev / Ops avec un système de "ticketing"</li>
             </aside>
           </section>
 
           <section>
             <h2>Three Ways</h2>
-            <p>2 - feedback loop</p>
+            <p>2 - Feedback loop</p>
             <img src="img/Three Ways - 2.png" style="width:70%; border:0px;">
             <aside class="notes">
-              Permettre aux Ops de faire un retour aux Dev
+              <p>Permettre aux Ops de faire un retour aux Dev.</p>
+              <p>Par exemple: permettre aux dev d'avoir accès aux log de leur application en production</p>
             </aside>
           </section>
 
@@ -140,7 +150,8 @@
             <p>3 - Culture of continual Experimentation and Learning</p>
             <img src="img/Three Ways - 3.png" style="width:70%; border:0px;">
             <aside class="notes">
-              tester, apprendre, améliorer, ...
+              <p>Mettre en place un system permettant aux personnes d'apprendre et de tester, ...</p>
+              <p>Nous en reparlerons plus en détail au cours de la présentation</p>
             </aside>
           </section>
         </section>
@@ -174,7 +185,7 @@
             <aside class="notes">
               <ul>
                 <li>Tools: JIRA, Taiga.io, ...</li>
-                <li>Transition: il va maintenant falloir remplir ce tableau</li>
+                <li>Transition: il va maintenant falloir remplir la première colonne de ce tableau</li>
               </ul>
             </aside>
           </section>
@@ -199,29 +210,29 @@
           </section>
 
           <section>
-            <h2>Users Stories</h2>
+            <h2>User Stories</h2>
             <ul>
-              <li><b>User Story:</b><br><i>En tant que commercant, je peux ajouter un article dans mon catalogue.</i></li>
+              <li><b>User Story:</b><br><i>En tant que commerçant, je peux ajouter un article dans mon catalogue.</i></li>
               <br>
-              <li><b>Security User Stories</b>:<br><i>En tant que commercant, je peux habiliter mes vendeurs.</i></li>
+              <li><b>Security User Stories</b>:<br><i>En tant que commerçant, je peux habiliter mes vendeurs.</i></li>
               <br>
               <li><b>Abuser Story (Evil Story)</b>:<br><i>En tant que pirate, je peux modifier le prix d'un article.</i></li>
             </ul>
           </section>
 
           <section>
-            <h2>Users Stories</h2>
+            <h2>User Stories</h2>
             <br>
             <ul>
-              <li>DOD (Definition of Done)</li>
-              <li>Acceptance criteria</li>
+              <li>Backlog</li>
               <br>
               <li>Epic Story</li>
               <br>
-              <li>Backlog</li>
+              <li>DOD (Definition of Done)</li>
+              <li>Acceptance criteria</li>
             </ul>
             <aside class="notes">
-              Transition: mainteant que nous savons quoi faire, il faut les personnes
+              Transition: il faut maintenant remplir le backlog ...
             </aside>
           </section>
 
@@ -256,7 +267,7 @@
               </span>
             </div>
             <div style="text-align: left; float: right; width:50%;">
-              <p><b>Réferentiel Client</b></p>
+              <p><b>Référentiel Client</b></p>
               <span class="fragment fade-in">
                 <small>
                 <ul>
@@ -289,12 +300,22 @@
                 </small>
               </span>
             </div>
+            <aside class="notes">
+              <p>Tous ça en 4 mois !!!!!</p>
+              <p>Le conseil d'administration a été un peu clément avec vous...</p>
+            </aside>
           </section>
 
           <section>
             <h2>MVP (Minimum Viable Product)</h2>
+            <p>Caisse Enregistreuse</p>
+            <p>Catalogue</p>
+            <p>Référentiel Client</p>
             <br><br>
             <h2 class="fragment fade-in">MVS (Minimum Viable Security)</h2>
+            <aside class="notes">
+              Transition: la liste des taches à faire est maintenant défini!<br> Il faut maintenant les personnes
+            </aside>
           </section>
 
         </section>
@@ -337,6 +358,22 @@
               Transition: Pour notre cas, nous retiendrons une équipe "cross functional team"
             </aside>
           </section>
+          
+          <section>
+            <h2>Les experts</h2>
+            <small><i>Software architect, technical architect, functional architect, Security, ...</i></small>
+            <p>Equipe transverse à l'organisation DevOps:</p>
+            <ul>
+              <li>ExaaS (Expert-as-a-Service)</li>
+              <li>CaaS (Consulting-as-a-Service)</li>
+            </ul>
+            <br>
+            <p>"Good enough expertise"</p>
+            <aside class="notes">
+              <p>Faut-il regrouper les experts Dev et experts Ops dans une seule équipe => Eviter les conflits d'experts !</p>
+            </aside>
+          </section>
+          
         </section>
 
         <!--###################################################################
@@ -368,21 +405,9 @@
               <p>Favorise la cohésion, évite les "sous groupe"</p>
               <p>Diminue le stress et la frustration</p>
               <p>http://blog.idonethis.com/two-pizza-team/</p>
-            <aside>
+            </aside>
           </section>
 
-          <section>
-            <h2>Experts</h2>
-            <small><i>Software architect, technical architect, functional architect, Security, ...</i></small>
-            <br>
-            <p>Transversal team in a DevOps organisation</p>
-            <ul>
-              <li>ExaaS (Expert-as-a-Service)</li>
-              <li>CaaS (Consulting-as-a-Service)</li>
-            </ul>
-            <br><br>
-            <p>"Good enough expertise"</p>
-          </section>
        </section>
 
         <!--###################################################################
@@ -410,22 +435,55 @@
             </ul>
             <aside class="notes">
               Transition: comment organiser les équipes ?
-            <aside>
+            </aside>
           </section>
 
           <section>
             <h2>Organisation des équipes</h2>
             <img src="img/ProgramAndTeam.jpg" style="width:50%; border:0px;">
             <aside class="notes">
-              Team backlog: contient également les expérimentations et les exigences non fonctionnelle (vulnérabilité à corriger)
+              <p>Product Backlog = Experimentation + exigence non fonctionnelle (vulnérabilité à corriger, ...)</p>
+              <p>Transition: chaque équipe utilisera ...</p>
             <aside>
           </section>
 
           <section>
-            <h2>Developpement Rythmé</h2>
-            <img src="img.jpg" style="width:50%; border:0px;">
+            <h2>Scrum</h2>
+            <p>Cycle de développement itératif</p>
+            <img src="img/Scrum Lifecycle.jpg" style="width:70%; border:0px;">
+            <aside class="notes">
+              Security Officer est présent:
+              <ul>
+                <li>auprès du Product Owner pour passer les Security User Stories</li>
+                <li>lors du Spring planning pour identifié les exigences / tache sécurités</li>
+              </ul>
+            </aside>
           </section>
-
+          
+          <section>
+            <h2>Coordination au niveau programme</h2>
+            <img src="img/Program_Increment.jpg" style="width:70%; border:0px;">
+            <aside class="notes">
+              PI Planning
+              <ul>
+                <li>Sessions regroupant toute les équipes</i>
+                <li>Permet de faire la démo du PI actuel</li>
+                <li>Présenter et partager le résultat des Experimentation et test</li>
+                <li>Définir les objectifs du prochain PI</li>
+                <li>La sécurité doit être présente pour inclure les exigences de sécurité au prochain PI</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section data-background-color="#ffffff">
+            <h2>SAFE (Scaled Agile Framework)</h2>
+            <img src="img/SAFe.jpg" style="width:100%; border:0px;">
+            <aside class="notes">
+              <p>Pour encadrer des équipes de plus en plus importante, se référer à la méthode SAFE</p>
+              <p>Transition: maintenant, il est temps de commencer les dév</p>
+            </aside>
+          </section>
+          
         </section>
 
         <!--###################################################################
@@ -436,12 +494,12 @@
 
           <section data-background-color="#ff0000">
             <h1>Question #7</h1>
-            <p>Quelle architecture adopter pour le DevOps ?</p>
+            <p>Quelle architecture adopter dans une organisation DevOps ?</p>
             <ul>
-            <li>A/ MVC</li>
-            <li>B/ Microservice</li>
-            <li>C/ Monolithique</li>
-            <li>D/ Architecture orientée service</li>
+              <li>A/ MVC</li>
+              <li>B/ Microservice</li>
+              <li>C/ Monolithique</li>
+              <li>D/ Architecture orientée service</li>
             </ul>
           </section>
 
@@ -450,12 +508,14 @@
             <ul>
               <li>Attention au anti-pattern (Syndrome du plat de spaghettis)</li>
               <li>Orchestrateur (exemple: Conductor)</li>
+              <br>
               <li>Authentification</li>
               <ul>
                 <li>OAuth 2.0</li>
                 <li>JWT (Json Web Token)</li>
               </ul>
             </ul>
+            <p>Cloud Native App: <a href="https://12factor.net/">The Twelve-Factor App</a></p>
           </section>
 
         </section>
@@ -468,24 +528,70 @@
 
           <section data-background-color="#ff0000">
             <h1>Question #8</h1>
-            <p>Quel framework utilisé ?</p>
+            <p>Quel framework utiliser ?</p>
             <ul>
               <li>A/ Le framework que je connais</li>
-              <li>B/ Le framework que les développeurs connaissent</li>
-              <li>C/ Le framework validé au sein de la société</li>
+              <li>B/ Le framework que l'équipe connait</li>
+              <li>C/ Le framework utilisé au sein de la société</li>
               <li>D/ Le tous dernier framework</li>
             </ul>
           </section>
 
           <section>
-            <h2>Framework validé au sein de la société</h2>
-
+            <h3>Framework utilisé au sein de la société</h3>
+            <br>
+            <p>Il sera maitrisé par tous :</p>
             <ul>
-              <li>Maitrisé par tous, y compris la production et la sécurité</li>
-              <li>Compatible avec l'infrastructure existante</li>
-              <li>Suivre les bonnes pratique de developpement sécurisé</li>
+              <li><b>Par la production:</b> compatible avec l'infrastructure existante</li>
+              <li><b>Par la sécurité:</b> conseil et guide de développement sécurité</li>
+              <li><b>Par les RH:</b> formation et conduite du changement (Skills Matrix)</li>
+            </ul>
+            <br><br><br>
+            <h3 class="fragment fade-in">No Cowboy Coding !</h3>
+            <br>
+            <aside class="notes">
+              <p>Limiter le nombre de framework pour faciliter la maintenance</p>
+              <p>Partage de connaissance et retour d'expérience lors des PI Planning</p>
+              <p>Partage des erreurs et vulnérabilités rencontrées</p>
+            </aside>
           </section>
 
+        </section>
+
+        <!--###################################################################
+                                Tool chain
+        ####################################################################-->
+
+        <section>
+
+          <section>
+            <h2>Toolchain</h2>
+            <img src="img/DevOpsToolchain.jpg" style="width:100%; border:0px;">
+          </section>
+        
+          <section>
+            <h2>Toolchain</h2>
+            <img src="img/PeriodicTable.png" style="width:70%; border:0px;">
+          </section>
+          
+          <section>
+            <h2>Security tools</h2>
+            <ul>
+              <li>Linter (ESlint Security)</li>
+              <li>Source code audit (Sonar Security Rules)</li>
+              <li>Security Mock (Mockito & Spring Security)</li>
+              <li>Secure TDD & BDD (BDD-Security with Cucumber.js)</li>
+            </ul>
+            <br><br>
+            <span class="fragment fade-in">
+            <p>A9-Using Components with Known Vulnerabilities</p>
+            <ul>
+              <li>Back End: Dependency check</li>
+              <li>Front End: RetireJS</li>
+            </ul>
+            </span>
+          </section>
+          
         </section>
 
         <!--###################################################################
@@ -496,35 +602,144 @@
 
           <section data-background-color="#ff0000">
             <h1>Question #9</h1>
-            <p>Quelle est la méthode indispensable pour se prémunir d'une injection de code (type XSS) ?</p>
+            <p>Dans quel environnement déployer vos produits ?</p>
             <ul>
-              <li>A/ Filtrer en entrée</li>
-              <li>B/ Encoder en sortie</li>
-              <li>C/ Peu importe, les frameworks s'en charge</li>
+              <li>A/ IaaS</li>
+              <li>B/ IaaS + Container</li>
+              <li>C/ PaaS</li>
+              <li>D/ SaaS</li>
             </ul>
-            <aside class="notes">
-              Même si les développeurs savent faire du Secure Coding, il va falloir controler
-            <aside>
-          </section>
-
-          <section>
-            <h2>Developpement tools</h2>
-            <img src="img/PeriodicTable.png" style="width:70%; border:0px;">
-            <p>2 pipeline : Front et Back</p>
           </section>
           
           <section>
-            <h2>Security tools</h2>
+            <h2>PaaS</h2>
             <ul>
-              <li>Linter (ESlint Security)</li>
-              <li>Source code audit (Sonar Security Rules)</li>
-              <li>Security Mock (Mockito & Spring Security</li>
-              <li>Secure TDD & BDD (BDD-Security with Cucumber.js )
+              <li>Open Shift (by Red Hat)</li>
+              <li>Clound Foundry (by Pivotal)</li>
+              <li>Bluemix (By IBM)</li>
             </ul>
+            <br><br>
+            <ul>
+              <li>LaaS (Load Balancer as a Service)</li>
+              <li>FaaS (Firewall as a Service)</li>
+            </ul>
+            <br><br>
+            <small>Fonctionnalités assurées par Neutron pour OpenStack</small>
           </section>
           
         </section>
+        
+        <!--###################################################################
+                                Question 10
+        ####################################################################-->
 
+        <section>
+
+          <section data-background-color="#ff0000">
+            <h1>Question #10</h1>
+            <p>Quelle stratégie de déploiement en production adopter ?</p>
+            <ul>
+              <li>A/ Mettre à jour l'environnement l'existant</li>
+              <li>B/ Installer un nouvel environnement</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Stratégie de déploiement</h2>
+            <img src="img/Deploy.gif" style="width:40%; border:0px;">
+            <p>Création d'un nouvel environnement à chaque déploiement:</p>
+            <p><i>"Blue/green" ou Canary release</i></p>
+            <br>            
+            <p class="fragment fade-in">Impossible de stocker des données: base de données, secret, ...</p>
+          </section>
+          
+        </section>
+        
+        <!--###################################################################
+                                Question 11
+        ####################################################################-->
+
+        <section>
+
+          <section data-background-color="#ff0000">
+            <h1>Question #11</h1>
+            <p>Comment stocker les secrets ?</p>
+            <ul>
+              <li>A/ Sauvegarde le secret dans le container</li>
+              <li>D/ Utiliser une base de données Clé/Valeur</li>
+              <li>B/ Passer le secret en variable d'environnement</li>
+              <li>C/ Passer le secret par un Volume</li>
+            </ul>
+          </section>
+        
+          <section>
+            <h2>Key/Value Store</h2>
+            <ul>
+              <li>Vault from HashiCorp</li>
+              <li>Barbican from RedHat</li>
+            </ul>
+          </section>
+        
+        </section>
+        
+        <!--###################################################################
+                                Conclusion
+        ####################################################################-->
+        
+        <section>
+        
+          <section>
+            <h2>Bilan d'avancement</h2>
+            <ul>
+              <li>Organisation en place (3 équipes + Outils)</li>
+              <li>Architecture applicative formalisée: Microservice</li>
+              <li>Framework de développement définie</li>
+              <li>Toolchain CI/CD mise en oeuvre</li>
+              <li>PaaS installée et prête à recevoir vos applications</li>
+            </ul>
+            <br><br>
+            <p>Vous avez maintenant les clés pour mener à bien un projet DevOps!</p>
+          </section>
+        
+          <section>
+            <h2>Pour plus d'information</h2>
+            <img src="img/book_phoenix.jpg" style="width:30%; border:0px;">
+            <aside class="notes">
+            Si vous souhaitez plus d'information, je vous recommande ce premier livre qui vous décrit les bases de DevOps.<br>
+            C'est un livre romancé dans lequel vous allez suivre l'aventure de Bill Palmer au sein de la société Part Unlimited.
+            <aside>
+          </section>
+          
+          <section>
+          <h2>Book</h2>
+          
+          <div style="text-align: center; float: left; width:50%;">
+            <img src="img/book2.jpg" style="width:47%; border:0px;">
+            <p>Agile Application Security</p>
+            <small>Enabling Security in a Continuous Delivery Pipeline</small>
+          </div>
+
+          <div style="text-align: center; float: right; width:50%;">
+            <img src="img/book1.png" style="width:50%; border:0px;">
+            <p>Securing DevOps</p>
+            <small>Safe services in the Cloud</small>
+          </div>
+          </section>
+          
+          <section data-background="img/question.jpg">
+<!--             <img src="img/question.jpg" style="width:100%; border:0px;"> -->
+            <h2>Any Question ?</h2>
+            <br>
+            <p class="fragment fade-in">View online at <a href="https://git.io/vbDTP">https://git.io/vbDTP</a></p>
+            <aside class="notes">
+            La présentation est maintenant terminée<br>
+            j'espère que cela vous aura plus<br>
+            La présentation est disponible en ligne<br>
+            J'imagine que vous avez maintenant de nombreuses questions
+            </aside>
+          </section>
+          
+        </section>
       </div>
     </div>
 

@@ -50,8 +50,12 @@
             </div>
           </div>
           <aside class="notes">
-          Pour aborder ensemble le sujet DevOps, je vous propose une présentation interactive dans laquelle vous devrez intervenir pour faire vos propres choix.
-          Avant de commencer, nous allons lancer le jeux puis je vous présenterez le contexte.
+          <p>Cette présentation devops story n’est pas une nouvelle emission de téléréalité mais plutot une fiction.<br>
+          Devops story est l’histoire d’une société qui souhaite faire sa transition vers DevOps.</p>
+          <p>Cette presentation sera interactive, c’est a dire que vous allez prendre part a cette transition.</br>
+          Au cours de la présentation, 11 questions vous seront posées. A vous d’y repondre correctement pour que cette transition soit un succes.</p>
+          <p>Puisque vous êtes la, c’est que vous avez accepté le defi.<br>
+          Je vous invite a ouvrir votre navigateur sur le site kahoo.it.</p>
           <aside>
         </section>
 
@@ -63,7 +67,7 @@
           <section>
             <h3>Cash Registers Unlimited Company</h3>
             <br>
-            <p>Société international créée en 1973</p>
+            <p>Société internationale créée en 1973</p>
             <br>
             <p>Fabriquant et revendeur de caisse enregistreuse</p>
             <p>Editeur de logiciel comptable</p>
@@ -73,7 +77,7 @@
             <h3>Désormais, la situation est grave</h3>
             <ul>
               <li>Perte de part de marché depuis 2013</li>
-              <li>Difficulité face aux nouveaux concurrents</li>
+              <li>Difficulté face aux nouveaux concurrents</li>
               <li>Echec du projet "SAAS" débuté en 2015</li>
             </ul>
             <br><br>
@@ -244,7 +248,7 @@
                 <small>
                 <ul>
                   <li>Application Android</li>
-                  <li>Creer de factures et devis</li>
+                  <li>Créer des factures et des devis</li>
                   <li>Encaissement Espèces, Chèque et Carte bancaire</li>
                   <li>Facilité de paiement (3 fois sans frais, ...)</li>
                   <li>Gestion des retours client</li>
@@ -256,10 +260,10 @@
               <span class="fragment fade-in">
                 <small>
                 <ul>
-                  <li>Gestion des articles et prestation</li>
+                  <li>Gestion des articles et des prestations</li>
                   <li>Gestion des stocks</li>
                   <li>Définition du taux de TVA et du taux de marge</li>
-                  <li>Ajout de photo des articles</li>
+                  <li>Ajout de photos des articles</li>
                   <li>Gestion des promotions</li>
                   <li>...</li>
                 </ul>
@@ -398,7 +402,7 @@
             <ul>
               <li>Small team (Two-pizza team)</li>
               <li>Self-organizing</li>
-              <li>self-managing</li>
+              <li>Self-managing</li>
             </ul>
             <aside class="notes">
               <p>10 personnes maximum est le résultat de l'étude mené par Jeff Bezos</p>
@@ -431,7 +435,7 @@
             <p>Changement d'organisation majeur:</p>
             <ul>
               <li>Abandon du système de gestion de projet traditionnel (budget, comité, ...)</li>
-              <li>Prise en compte de la culture DevOps dans les objectifs des collaborateurs ()</li>
+              <li>Prise en compte de la culture DevOps dans les objectifs des collaborateurs</li>
             </ul>
             <aside class="notes">
               Transition: comment organiser les équipes ?
@@ -446,22 +450,10 @@
               <p>Transition: chaque équipe utilisera ...</p>
             <aside>
           </section>
-
-          <section>
-            <h2>Scrum</h2>
-            <p>Cycle de développement itératif</p>
-            <img src="img/Scrum Lifecycle.jpg" style="width:70%; border:0px;">
-            <aside class="notes">
-              Security Officer est présent:
-              <ul>
-                <li>auprès du Product Owner pour passer les Security User Stories</li>
-                <li>lors du Spring planning pour identifié les exigences / tache sécurités</li>
-              </ul>
-            </aside>
-          </section>
           
           <section>
             <h2>Coordination au niveau programme</h2>
+            <p>with Program Increment</p>
             <img src="img/Program_Increment.jpg" style="width:70%; border:0px;">
             <aside class="notes">
               PI Planning
@@ -471,6 +463,19 @@
                 <li>Présenter et partager le résultat des Experimentation et test</li>
                 <li>Définir les objectifs du prochain PI</li>
                 <li>La sécurité doit être présente pour inclure les exigences de sécurité au prochain PI</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Scrum</h2>
+            <p>Cycle de développement itératif</p>
+            <img src="img/Scrum Lifecycle.jpg" style="width:70%; border:0px;">
+            <aside class="notes">
+              Security Officer est présent:
+              <ul>
+                <li>auprès du Product Owner pour passer les Security User Stories</li>
+                <li>lors du Spring planning pour identifié les exigences / tache sécurités</li>
               </ul>
             </aside>
           </section>
@@ -543,7 +548,7 @@
             <p>Il sera maitrisé par tous :</p>
             <ul>
               <li><b>Par la production:</b> compatible avec l'infrastructure existante</li>
-              <li><b>Par la sécurité:</b> conseil et guide de développement sécurité</li>
+              <li><b>Par la sécurité:</b> conseil et guide de développement sécurisé</li>
               <li><b>Par les RH:</b> formation et conduite du changement (Skills Matrix)</li>
             </ul>
             <br><br><br>
@@ -648,8 +653,7 @@
             <h2>Stratégie de déploiement</h2>
             <img src="img/Deploy.gif" style="width:40%; border:0px;">
             <p>Création d'un nouvel environnement à chaque déploiement:</p>
-            <p><i>"Blue/green" ou Canary release</i></p>
-            <br>            
+            <p><i>"Blue/green" ou Canary release</i></p>       
             <p class="fragment fade-in">Impossible de stocker des données: base de données, secret, ...</p>
           </section>
           
@@ -665,7 +669,7 @@
             <h1>Question #11</h1>
             <p>Comment stocker les secrets ?</p>
             <ul>
-              <li>A/ Sauvegarde le secret dans le container</li>
+              <li>A/ Sauvegarder le secret dans le container</li>
               <li>D/ Utiliser une base de données Clé/Valeur</li>
               <li>B/ Passer le secret en variable d'environnement</li>
               <li>C/ Passer le secret par un Volume</li>
@@ -689,11 +693,11 @@
         <section>
         
           <section>
-            <h2>Bilan d'avancement</h2>
+            <h2>Bilan de la situation</h2>
             <ul>
-              <li>Organisation en place (3 équipes + Outils)</li>
+              <li>Organisation en place (3 équipes avec Kanban et Backlog)</li>
               <li>Architecture applicative formalisée: Microservice</li>
-              <li>Framework de développement définie</li>
+              <li>Framework de développement défini</li>
               <li>Toolchain CI/CD mise en oeuvre</li>
               <li>PaaS installée et prête à recevoir vos applications</li>
             </ul>
@@ -727,10 +731,14 @@
           </section>
           
           <section data-background="img/question.jpg">
-<!--             <img src="img/question.jpg" style="width:100%; border:0px;"> -->
+            <!--Droit d'auteur: <a href='https://fr.123rf.com/profile_tostphoto'>tostphoto / 123RF Banque d'images</a> -->
             <h2>Any Question ?</h2>
             <br>
-            <p class="fragment fade-in">View online at <a href="https://git.io/vbDTP">https://git.io/vbDTP</a></p>
+            <span class="fragment fade-in">
+              <p>View online at <a href="https://git.io/vbDTP">https://git.io/vbDTP</a></p>
+              <br>
+              <p><a href="https://play.kahoot.it/#/?quizId=48d30d31-bd42-427b-a412-8ebef8c42273">Kahoot Quizz</a></p>
+            </span>
             <aside class="notes">
             La présentation est maintenant terminée<br>
             j'espère que cela vous aura plus<br>

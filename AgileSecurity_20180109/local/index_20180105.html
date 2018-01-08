@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Agile Security</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:10%;
+        width:60%;
+        top:55%;
+        background-color:rgba(50,48,53,0.5);
+        text-align: right;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-state="header1" data-background="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>Agile Security</h1>
+              <p>
+                <small>By Didier BERNAUDEAU</small>
+                <br>
+                <small>OSSIR (January 9th, 2018)</small>
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+          <aside>
+        </section>
+
+<!--        <section>
+        
+          <small>
+          <p><b>- Alice:</b>Bob, est-ce que l’envoie de mail peut poser des problématiques de sécurité?</p>
+          <p><b>- Bob:</b>tout dépend des données transmises …</b>
+          <p><b>- Alice:</b> Ah! Et avec des données relatives au paiement comme les cartes et IBAN</p>
+          <p><b>- Bob:</b> Oui effectivement. Nous devrons étudier le sujet. La mise en production est prévu pour quand?</p>
+          <p><b>- Alice:</b> c’est en prod depuis 2 semaines</p>
+          <p><b>- Bob:</b> et la validation secu, le comité projet, la recette secu…</p>
+          <p><b>-Alice:</b> mais nous sommes en mode agile...</p>
+          </small>
+        </section>-->
+
+        <section>
+          <h2>Disclaimer</h2>
+            <br>
+            <p>This presentation is the result of my personal researches and experimentation.</p>
+            <p><b>I don't speak on behalf of my employer.</b> The information and perspective that I present are personal and don't represent those of my employer.</p>
+            <br/>
+            <small>The written content in this presentation is published under a Creative Commons License (BY-NC-SA)</small>
+            <small>Photographs are protected by copyright.</small>
+        </section>
+        
+        <section>
+          <h2>Foreword</h2>
+          <ul>
+            <li>From <b>Application Security</b> point of view (Risk Management, Infrastructure Security, ...)</li>
+            <li>DevOps</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>Cette présentation est écrité d'un point de vue sécurité applicative, je sais que cette fonction n'est pas présente dans toutes les sociétés</li>
+              </ul>
+          </aside>
+        </section>
+        
+        <section>
+          <h3>Part 1 - Agile software development (The basics)</h3>
+        </section>
+        
+        <section>
+          <h3>Product Thinking</h3>
+          <br>
+          <p class="fragment fade-in">No Project</p>
+          <br>
+          <p class="fragment fade-in">No Application</p>
+          <aside class="notes">
+            <ul>
+              <li>Il y a 2 approches possibles : projet ou produit</li>
+              <li>Il y a de nombreux débats sur l'approche à retenir mais la suite de la présentation se fera avec une approche produit</li>
+              <li>L'approche projet est une vision éphémère.</li>
+              <li>L'approche produit impacte la gestion budgétaire et définition des objectifs des collaborateurs</li>
+              <br>
+              <li>Tout produit contribue à une fonction métier (contrairement à certaine application dont la fonction métier est indirect)</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h3>Product Thinking</h3>
+          <br>
+          <p class="fragment fade-in">Product Owner</p>
+          <br>
+          <p class="fragment fade-in">Minimal Viable Product (MVP)</p>
+          <br>
+          <p class="fragment fade-in">Minimal Viable Security (MVS)</p>
+          <aside class="notes">
+            <ul>
+              <li>Product Owner est la personne responsable du produit</li>
+              <li>Product Owner est en relation avec toute les parties prenantes (y compris la sécurité)<li>
+              <li>La sécurité doit faire du lobbying auprès du Product Owner pour promouvoir la sécurité</li>
+            </ul>
+          </aside>
+        </section>
+
+        
+        <section>
+          <h3>Cross functional team</h3>
+        </section>
+        
+        <section>
+          <ul>
+            <li>SAFe</li>
+            <li>Large-Scale Scrum</li>
+            <li>Disciplined agile delivery</li>
+        </section>
+        
+        <section>
+          <h3>Source</h3>
+          <small>
+            <ul>
+              <li><a href="https://blog.octo.com/passer-du-mode-projet-au-mode-produit/">Passer du mode projet au mode produit</a></li>
+              <li><a href="https://www.thoughtworks.com/insights/blog/project-vs-product">Project vs. Product</a></li>
+            </ul>
+        </section>
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        multiplex: {
+          secret: '15123048770077207202',
+          id: '6acf985aa5f95b8e',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
+
+<!--
+        <section>
+          <small>
+          <ul>
+            <li>Application mobile fonctionnant sur tablette ou mobile Android</li>
+            <li>Terminal de paiement Bluetooth</li>
+            <li>Catalogue Produit et Référentiel client</li>
+            <li>Programme de fidélité (Coupon)</li>
+            <li>Comptabilités automatiques (calcul TVA collectée, ...)</li>
+            <li>...</li>
+          </ul>
+          </small>
+        </section>-->

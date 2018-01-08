@@ -1,0 +1,716 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Agile Security</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:10%;
+        width:60%;
+        top:55%;
+        background-color:rgba(50,48,53,0.5);
+        text-align: right;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-state="header1" data-background="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>Agile Security</h1>
+              <p>
+                <small>By Didier BERNAUDEAU</small>
+                <br>
+                <small>OSSIR (January 9th, 2018)</small>
+              </p>
+            </div>
+          </div>
+          <aside class="notes">
+            <ul>
+              <li>Bonjour à tous!</li>
+              <li>Je m'appelle Didier Bernaudeau et je travaille depuis une dizaine d'années dans la sécurité applicative.</li>
+              <li>Pour cette première session de l'OSSIR de l'année 2018, je vous propose de vous présenter la sécurité Agile.</li>
+              <li>Ou comment intégrer la sécurité dans une démarche Agile.</li>
+              <li>Cette présentation est une fiction avec comme principaux acteurs Bob et Alice (que vous connaissez déjà) et cela à lieux dans la Cash Register Unlimited Company.</li>
+              <li>Cette présentation est composée de 2 chapitres.</li>
+              <li>Vous pourrez me faire part de vos questions et remarques en fin de présentation</li>
+          <aside>
+        </section>
+
+        <section>
+          <h2>Disclaimer</h2>
+          <br>
+          <p><b>I don't speak on behalf of my employer.</b></p>
+          <p>The information and perspective that I present are personal and don't represent those of my employer.</p>
+          <br>
+          <p>This presentation is the result of my personal researches and experimentation.</p>
+        </section>
+        
+        <section>
+        
+          <section>
+            <h1>Chapter 1</h1>
+            <h2>The revelation</h2>
+          </section>
+          
+          <section>
+            <h2>Bob</h2>
+            <span class="fragment fade-in">
+            <div style="text-align: left; float: left; width:50%;">
+              <ul>
+                <li>Works for Cash Register Unlimited Company (since 2003)</li>
+                <br>
+                <li>In charge of Application Security</li>
+                <br>
+                <li>70 projects per year</li>
+                <br>
+                <li>200 applications</li>
+              </ul>
+            </div>
+            <div style="text-align: center; float: right; width:50%;">
+              <img src="img/Bob.png" style="width:50%; border:0px;">
+            </div>
+            <span>
+            <aside class="notes">
+              <ul>
+                <li>Pour cette présentation, nous allons suivre Bob</li>
+                <li>C'est un personnage qui vous est familier (Alice nous rejoindra au cours de la présentation)</li>
+              </ul>
+            </aside>
+          </section>
+        
+          <section>
+            <h2>Software Development Life Cycle</h2>
+            <br>
+            <img src="img/Waterfall.png" style="width:50%; border:0px;">
+            <aside class="notes">
+              <ul>
+                <li>Approche traditionnelle en cascade utilisé depuis des décennies.</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Secure SDLC</h2>
+            <br>
+            <img src="img/WaterfallSecure.png" style="width:50%; border:0px;">
+            <aside class="notes">
+              <ul>
+                <li>Security Requirement</li>
+                <li>Secure Codeing Policy</li>
+                <li>Pentest</li>
+                <li>Deploy in a secure Infrastructure (Firewall, WAF, ...)</li>
+              </ul>
+            </aside>
+          </section>
+        
+          <section>
+            <h2>Everything all right!</h2>
+            <img src="img/BobHappy.png" style="width:50%; border:0px;">
+          </section>
+        
+          <section>
+            <h2>Until the day of ...</h2>
+            <small style="text-align: left;">
+              <p style="color:#60a6da"><b>- Alice:</b> Hi Bob! Are there security issues regarding email sending?</p>
+              <p style="color:#fdf66a"><b>- Bob:</b> Maybe, what is data?</b>
+              <p style="color:#60a6da"><b>- Alice:</b> For instance, banking data (PAN, IBAN, ...)</p>
+              <p style="color:#fdf66a"><b>- Bob:</b> In this case, I must analyse your project. What is the deadline?</p>
+              <p style="color:#60a6da"><b>- Alice:</b> This is already in production 2 weeks ago!</p>
+              <p style="color:#fdf66a"><b>- Bob:</b> Oh! How is it possible? without security validation? Without security acceptance testing?</p>
+              <p style="color:#60a6da"><b>- Alice:</b> Well ... we use Agile Methogology!</p>
+            </small>
+          </section>
+          
+          <section>
+            <h2>Agile ???</h2>
+            <br>
+            <div style="text-align: center; float: left; width:50%;">
+              <img src="img/BobOuch.png" style="width:50%; border:0px;">
+            </div>
+            <div style="text-align: right; float: right; width:50%;">
+              <ul>
+                <li>Manifesto for Agile Software Development (February 2001)</li>
+                <br>
+                <li>Scrum / Kanban</li>
+                <br>
+                <li>Cash Register Unlimited Company has implemented Agile SDLC since 2013</li>
+            </div>
+            <aside class="notes">
+              <li>Agile SDLC est introduit petit à petit au sein de la société</li>
+              <li>En parallèle au SDLC traditionnel</li>
+              <li>Au début pour de petit projet anecdotique</li>
+              <li>La sécurité était peu concernée (Peu d'impact)</li>
+            </aside>
+          </section>
+        
+        </section>
+
+        <section>
+        
+          <section>
+            <h1>Chapter 2</h1>
+            <h2>Become an Agile Security Officer</h2>
+          </section>
+          
+          <section>
+            <h3>Product Thinking</h3>
+            <br>
+            <p class="fragment fade-in">No Project</p>
+            <br>
+            <p class="fragment fade-in">No Application</p>
+            <aside class="notes">
+              <ul>
+                <li>Il y a 2 approches possibles : projet ou produit</li>
+                <li>Il y a de nombreux débats sur l'approche à retenir mais la suite de la présentation se fera avec une approche produit</li>
+                <li>L'approche projet est une vision éphémère.</li>
+                <li>L'approche produit impacte la gestion budgétaire et la définition des objectifs des collaborateurs</li>
+                <br>
+                <li>Tout produit contribue à une fonction métier (contrairement à certaine application dont la fonction métier est indirecte)</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Product Owner</h2>
+            <div style="text-align: left; float: left; width:50%;">
+              <br>
+              <ul>
+                <li>PO is the only person responsible for managing the Product Backlog.</li>
+                <br>
+                <li>PO have a lot of stakeholders to take into account</li>
+              </ul>
+              <br>
+              <p class="fragment fade-in" style="text-align: center; color:red">Security Officer should become a major stakeholder</p>
+            </div>
+            <div style="text-align: center; float: right; width:50%;">
+              <img src="img/Alice.png" style="width:40%; border:0px;">
+              <small>Alice is the Product Owner of "Cash Register 2.0"</small>
+            </div>
+            <span>
+            <aside class="notes">
+              <ul>
+                <li>Le product owner est un acteur clé dans une organisation Agile.</li>
+                <li>Il est responsable d'un produit</li>
+                <li>Product Owner est en relation avec toute les parties prenantes (y compris la sécurité)<li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h3>Product Backlog</h3>
+            <ul>
+              <li>It is a prioritized inventory of work to be done.</li>
+              <br>
+              <li>Type of Product Backlog Item (PBI) :</li>
+                <ul>
+                  <li>Features (User Stories)</li>
+                  <li>Non-Functional Requirement</li>
+                  <li>Defects (Bug Stories)</li>
+                  <li>Refactoring</li>
+                  <li>...</li>
+                </ul>
+            </ul>
+            <br>
+            <p class="fragment fade-in" style="text-align: center; color:red">Security Officer should include security topics in the Product Backlog.</p>
+            <aside class="notes">
+              <ul>
+                <li>Le Backlog doit contenir toutes les taches à effectuer</li>
+                <li>Exigence fonctionnelle et non fonctionnelle</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>User Stories</h2>
+            <br>
+            <p>Security features:</p>
+            <p><i>As seller, I want to change my password on the Cash Register</i></p>
+            <br>
+            <p>Acceptance Criteria:</p>
+            <p><i>The password is at least 8 characters. The password contains a character from each of the following groups: Lower case alphabet, Upper case alphabet, Numbers Special Characters (!,@,#,$,%,^,&,*)</i></p>
+            <aside class="notes">
+              <ol>
+                <li>Promouvoir les fonctions de sécurité auprès du product owner</li>
+                <li>Définir les règles de la fonction</li>
+                <li>Les règles doivent être des exemples afin d'implémenter le ADTT / BDD</li>
+              </ol>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Security-focused stories</h2>
+            <br>
+            <ul>
+              <li>Approach introduced by <a href="http://safecode.org/publication/SAFECode_Agile_Dev_Security0712.pdf">Safe Code</a></li>
+              <li>A way to include non-functionnal requirement in the backlog</li>
+            </ul>
+            <br><br>
+            <p>Example: <i>As developer, I want to verify that sensitive data is kept restricted to actors authorized to access it.</i></p>
+            <aside class="notes">
+              Cette approche n'est pas réellement applicable par les développeurs.
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Evil user Stories</h2>
+            <small>aka "Abuser Stories"</small>
+            <br>
+            <ul>
+              <li>Approach introduced by <a href="https://www.owasp.org/index.php/Agile_Software_Development:_Don%27t_Forget_EVIL_User_Stories">OWASP</a></li>
+              <li>Using Personas: Insider Hacker, Professional hackers, Script kiddie, ...</li>
+            <ul>
+            <br>
+            <p>Example: <i>As a hacker, I can modify the price of an article.</i></p>
+            <aside class="notes">
+            Les "evil user stories" proviennent des scénarios de risque de l'analyse de risque
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Security in Product Backlog</h2>
+            <br>
+            <ul>
+              <li>User Stories with acceptance criteria</li>
+              <li>Security-focused stories (NFR)</li>
+              <li>Evil user Stories</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Definition of Done</h2>
+            <br>
+            <p>List of activities to validate each item in the Product Backlog.</p>
+            <br>
+            <span class="fragment fade-in">
+              <p style="text-align: center; color:red">Security Officer should include security in DoD.</p>
+              <p>
+                <b>Example of secure activity:</b> <i>There should be no open critical and high vulnerability identified by Source Code Analysis</i>
+              </p>
+            </span>
+          </section>
+          
+          <section>
+            <h2>Sprint</h2>
+            <img src="img/Scrum Lifecycle.jpg" style="width:80%; border:0px;">
+            <p class="fragment fade-in" style="text-align: center; color:red">Security Officer should take part in sprint meeting.</p>
+            <aside class="notes">
+             <ul>
+              <li>Un sprint est un cycle de développement de 2 à 3 semaines (durée fixe pour tous les sprints)</li>
+              <li>Un sprint commence par le planning meeting au cours duquel les développeurs définissent, dans le sprint backlog, les taches à réaliser</li>
+              <li>DevTeam: cross functional team mais pas nécessairement d'expert sécurité</li>
+              <li>La DevTeam est autonome et isolé du reste de la société</li>
+              <li>Le Scrum Master à un rôle de facilitateur et peut sollicité l'expert sécurité si besoin</li>
+              <li>Srpint retrospective est l'occasion d'échanger sur les problématiques rencontrées (et notamment de sécurité)</li>
+             </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Minimal Product</h2>
+            <p>Minimal Viable Product (MVP)</p>
+            <small>Product which allows a team to test an ideas with the least effort.</small>
+            <br>
+            <p>Minimal Marketable Product (MMP)</p>
+            <small>Product with the smallest possible feature set that addresses the needs of the initial users.</small>
+            <br>
+            <p class="fragment fade-in" style="color:red">Security Officer should define the <br><b>Minimal Viable Security (MVS)</b> <br> for the product.</p>
+          </section>
+        
+        </section>
+
+        <section>
+        
+          <section>
+            <h1>Chapter 3</h1>
+            <h2>Security in Sprint Phases</h2>
+          </section>
+          
+          <section>
+            <h2>Sprint phases</h2>
+            <ol>
+              <li>Code</li>
+              <li>Test</li>
+              <li>Deploy</li>
+            </ol>
+            <aside class="notes">
+              <ul>
+                <li>Un sprint se déroule généralement avec les 3 phases suviantes.</li>
+                <li>Les noms peuvent variés en fonction de la démarche retenue</li>
+                <li>Dans ce chapitre nous allons parcourir les différentes technologies généralement utilisées lors d'un développement Agile</li>
+                <li><b>Ce sera malheureusement qu'un aperçu rapide.</b></li>
+                <li>Nous pourrons échanger en fin de présentation voir faire une autre présentation si vous êtes intéressés</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Phase 1 # Code</h2>
+          </section>
+          
+          <section>
+            <h2>Cowboy coding</h2>
+            <br>
+            <div style="text-align: left; float: left; width:50%;">
+              <ul>
+              <li><b>Prevent "cowboy" development:</b></li>
+                <small>
+                <ul>
+                  <li>Define allowed frameworks</li>
+                  <li>Define security guideline for each framework</li>
+                  <li>Change management</li>
+                </ul>
+                </small>
+                <br><br>
+                <li>Identify framework with known vulnerabilities:</li>
+                <small>
+                <ul>
+                  <li>Artifact repository: JFrog X-Ray, BlackDuck Hub, ...</li>
+                  <li>Build: Dependency Check / RetireJS</li>
+                </ul>
+                </small>
+              </ul>          
+            </div>
+            <div style="text-align: center; float: right; width:50%;">
+              <img src="img/cowboy_coding.jpg" style="width:50%; border:0px;">
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>Agile n'est pas du Cowboy Coding</li>
+                <li>Pour éviter cette dérive:...</li>
+                <li>Guideline sous forme de Wiki / Forum collaboratif</li>
+                <li>Les développeurs peuvent contribué, modéré par la sécurité</li>
+                <li>Prévoir des formations en cas de changement de technologie (Java à NodeJS ou Struts à Spring)</li>
+                <li>Alternative aux formations: pair programming</li>
+                <li>Attention aux Learning Curve des frameworks, exemple: Spring Security</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>MicroService</h2>
+            <br>
+            <ul>
+              <li>Best agile software architecture</li>
+              <br>
+              <li>2 parts:</li>
+              <ul>
+                <li>Front End (WebApp / MobileApp)</li>
+                <li>Back End (MicroService)</li>
+              </ul>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Architecture adaptée à la démarche agile: 1 microservice par sprint</li>
+                <li>Architecture monolithic est difficilement compatible (notamment si 3 mois de test sont nécessaire à la moindre modification)</li>
+              </ul>
+            </aside>
+          </section>
+          
+          <section>
+            <h2>Securing MicroService</h2>
+            
+            <ul>
+              <li>Front End (WebApp):</li>
+              <ul>
+                <li>Linter (ESlint Security)</li>
+                <li>Minify and Obfuscate (UglifyJS)</li>
+              </ul>
+              <br>
+              <li>Back End (Microservice):</li>
+              <ul>
+                <li>Stateless & Autoscalling</li>
+                <li>Authentication Token (OAuth / JWT)</li>
+                <li>HTTPS</li>
+                <li>Privileged <b>Orchestration</b> pattern to Choreography</p>
+              </ul>
+          </section>
+          
+          <section>
+            <h2>Microservice</h2>
+            <img src="img/Microservice.jpg" style="width:25%; border:0px;">
+          </section>
+        
+          <section>
+            <h2>Phase 2 # Test</h2>
+            <aside class="notes">
+              <ul>
+                <li>La phase de test en mode Agile ne peut être réalisée manuellement (car changement trop fréquent)</li>
+                <li>Les tests ne peuvent pas être confier une équipe dédiée (Anti-pattern Agile)</li>
+                <li>En mode Agile, il y a 2 principales méthodologies pour effectuer les tests.</li>
+                <li>Il faudra bien évidement les adopter pour tester la sécurité</li>
+              </ul>
+            <aside>
+          </section>
+          
+          <section>
+            <h2>Test-Driven Development</h2>
+            <br>
+            <ol>
+              <li>Start by writing an automated test case.</li>
+              <li>Run the test which should fail.</li>
+              <li>Write the minimum amount of code required to make the test pass</li>
+              <li>Run the tests to check the new test passes</li>
+              <li>Refactors the new code</li>
+            </ol>
+            <br><br>
+            <p class="fragment fade-in">Positive testing ("Happy Path") / Negative testing</p>
+            <aside class="notes">
+              <ul>
+                <li>La première méthode est le TDD</li>
+                <li>Il s'agit avant tout d'une méthode de travail: ...</li>
+                <li>Le TDD concerne avant tout les test unitaires</li>
+                <li>Test positif: test avec les valeurs attendu par l'application</li>
+                <li>D'un point de vue sécurité, les tests négatifs doivent être effectués (valeur inattendue, XSS, SQLi, ...)</li>
+              </ul>
+            <aside>
+          </section>
+                    
+          <section> 
+            <h2>Behavior-Driven Development</h2>
+          
+            <ul>
+              <li>Integration test</li>
+              <li>Test are written with DSL (Domain-specific language) like <b>Gherkin</b></li>
+            </ul>
+            <pre class="Gherkin"><code>
+  Feature: Account Holder withdraws cash
+
+  Scenario: Account has sufficient funds
+   Given the account balance is $100
+     And the card is valid
+     And the machine contains enough money  
+    When the Account Holder requests $20
+    Then the ATM should dispense $20
+     And the account balance should be $80
+     And the card should be returned
+            </code></pre>
+            <aside class="notes">
+              <ul>
+                <li>La seconde méthode permet de réaliser des tests d'intégration</li>
+                <li>Ces tests décrivent le comportement attendu par l'application</li>
+                <li>La syntax utilisée permet une meilleure compréhension du test par tous les acteurs</li>
+                <li>Exemple de test avec un automate</li>
+              </ul>
+            <aside>
+          </section>
+          
+          <section>
+            <h2>Common Testing Tools</h2>
+              <ul>
+                <li>Fitness</li>
+                <li>Mockito</li>
+                <li>Cucumber</li>
+                <li>Selenium</li>
+                <li>JBehave (Java)</li>
+                <li>Behat (PHP)</li>
+                <li>Hiptest</li>
+            </ul>
+          </section>
+          
+          <section>
+              <h2>Security testing tools</h2>
+              <ul>
+                <li><a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">ZAP</a></li>
+                <li><a href="http://gauntlt.org/">Gauntlt</a> (Be mean to your code and like it)</li>
+                <li><a href="https://www.continuumsecurity.net/bdd-security/">BDD Security</a></li>
+              </li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Phase 3 # Deploy</h2>
+            <aside class="notes">
+              <ul>
+              </ul>
+            <aside>
+          </section>
+          
+          <section>
+            <h2>Strategy Deployment</h2>
+            <img src="img/Deploy.gif" style="width:40%; border:0px;">
+            <p>New environment for each deployment</p>
+            <p><i>"Blue/green" or Canary release</i></p>
+          </section>
+          
+          <section>
+            <h2>Infrastructure as code (IaC)</h2>
+            <br>
+            <ul>
+              <li>Tools: Chef, Puppet, Ansible, ...</li>
+              <br>
+              <li>Test Driven Infrastructure:</p>
+              <ul>
+                <li>Linter: puppet-lint, Ansible lint, Foodcritic, RuboCop, ...</li>
+                <li>Unit testing: RSpec-Puppet, ChefSpec, ...</li>
+                <li>Acceptance testing: Beaker for puppet, Test kitchen for Chef, ...</li>
+              </ul>
+              <br>
+              <li>Virtual Network (LaaS and FaaS): Neutron from RedHat</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Container</h2>
+            <ul>
+              <li>Software:</li>
+              <ul>
+                <li>Container runtime: runC, Docker, Rocket, Garden, ...</li>
+                <li>PAAS: OpenShift, CloudFoundry, Bluemix, ...</li>
+              </ul>
+              <br>
+              <li>Secret storage: Vault from Hashicorp, Barbican from RedHat, ...</li>
+              <li>Network Overlay & Micro Segmentation</li>
+              <li>Segregate Containers by host (CoreOS)</li>
+              <li>Container vulnerabilities Scanner (Clair)</li>
+            </ul>
+            <aside class="notes">
+              Bien sur, tout cela est simplifiée et il y a plein de sujet que je n'ai pas abordé, comme le "data agility", ...
+            <aside>
+          </section>
+          
+        </section>
+        
+        <section>
+        
+          <section>
+            <h1>Chapter 4</h1>
+            <h2>Secure Software Supply Chain</h2>
+            <aside class="notes">
+              <ul>
+                <li>Nous en venons au dernier chapitre pour parler de la "Software Suply Chain"</li>
+                <li>Il y a différente manière de la nommer: "Software Development Pipeline", "Software Factory" ou encore "tool chain"</li>
+                <li>Nous avons évoqué un ensemble d'outil tout au long de cette présentation.</li>
+                <li>Il faut maintenant les inclure dans la Software Suply Chain</li>
+              </ul>
+            <aside>
+          </section>
+        
+          <section>
+            <h2>Software Supply Chain</h2>
+            <img src="img/DevOpsToolchain.jpg" style="width:100%; border:0px;">
+          </section>
+        
+          <section>
+            <h2>Tools</h2>
+            <img src="img/PeriodicTable.png" style="width:70%; border:0px;">
+          </section>
+
+          <section>
+            <h2>Some best practices</h2>
+            <p>For securing your Software Supply Chain</p>
+            <br>
+            <ul>
+              <li>HTTPS</li>
+              <li>Authentication</li>
+              <li>Access Management</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>Authentification même par simple mot de passe.</li>
+                <li>Authentication à double facteur est difficile à mettre en place sur l'ensemble des outils</li>
+                <li>Gestion des droits d'accès: supprimer les droits lorsqu'un dev change d'équipe</li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+ 
+        <section data-background="img/Question.jpg">
+            <!--Droit d'auteur: <a href='https://fr.123rf.com/profile_tostphoto'>tostphoto / 123RF Banque d'images</a> -->
+            <h2>Any Question ?</h2>
+            <br>
+            <span class="fragment fade-in">
+              <p>View online at <a href="https://git.io/vNtqD">https://git.io/vNtqD</a></p>
+            </span>
+            <aside class="notes">
+              <p>La présentation arrive à sa fin.</p>
+              <p>J'espère que cette présentation vous sera utile</p>
+              <p>Elle est disponible sur GitHub</p>
+            </aside>
+          </section>
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        multiplex: {
+          secret: '15123048770077207202',
+          id: '6acf985aa5f95b8e',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
+
+<!--
+        <section>
+          <small>
+          <ul>
+            <li>Application mobile fonctionnant sur tablette ou mobile Android</li>
+            <li>Terminal de paiement Bluetooth</li>
+            <li>Catalogue Produit et Référentiel client</li>
+            <li>Programme de fidélité (Coupon)</li>
+            <li>Comptabilités automatiques (calcul TVA collectée, ...)</li>
+            <li>...</li>
+          </ul>
+          </small>
+        </section>-->

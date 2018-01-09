@@ -481,14 +481,15 @@
               <li>Refactors the new code</li>
             </ol>
             <br><br>
-            <p class="fragment fade-in">Positive testing ("Happy Path") / Negative testing</p>
+            <p class="fragment fade-in">Positive testing (Valid data) and <b>Negative testing</b> (Invalid data)</p>
             <aside class="notes">
               <ul>
                 <li>La première méthode est le TDD</li>
                 <li>Il s'agit avant tout d'une méthode de travail: ...</li>
                 <li>Le TDD concerne avant tout les test unitaires</li>
-                <li>Test positif: test avec les valeurs attendu par l'application</li>
-                <li>D'un point de vue sécurité, les tests négatifs doivent être effectués (valeur inattendue, XSS, SQLi, ...)</li>
+                <li>En TDD, il y a 2 types de testw : positif et négatif</li>
+                <li>Les tests négatifs sont indispensables pour tester la sécurité</li>
+                <li>mais souvent oublié par les développeurs.</li>
               </ul>
             <aside>
           </section>

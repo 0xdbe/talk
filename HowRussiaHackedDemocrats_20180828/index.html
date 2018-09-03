@@ -1,0 +1,521 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>How Russia hacked democrats?</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    
+    <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:0%;
+        width:80%;
+        top:10%;
+        background-color:rgba(51,66,151,0.4);
+        text-align: right;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="reveal">
+    
+      <div class="slides">
+      
+        <section data-state="header1" data-background="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h2>How Russia hacked democrats?</h2>
+              <h4>August 28<span class="ordinal">th</span>, 2018</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+          <aside class="notes">
+            <small>
+            <p>Pour cette première session, j'ai souhaité aborder l'attaque du partie démocrate de 2016.</p>
+            <p>Suite à la publication des documents officiels par le FBI, nous pouvons revenir sur ce sujet.</p>
+            </small>
+          </aside>
+        </section>
+        
+        <section>
+            <p>View online at <a href="https://0xdbe.github.io/HowRussiaHacksDemocrats_20180828/">https://git.io/fAO1d</a></p>
+            <p>Keyboard Shortcuts</p>
+          <small>
+          <table>
+          <tr>
+          <td><b>Full Screen</b></td>
+          <td>F</td>
+          </tr>
+          <tr>
+          <td><b>Next Slide</b></td>
+          <td>Space bar</td>
+          </tr>
+          <tr>
+      <td><b>Slide Notes</b></td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td><b>Thumbnail View</b></td>
+      <td>Esc</td>
+    </tr>
+  </table>
+  </small>
+  <aside class="notes">
+    <p>- Cette présentation est disponible sur github</p>
+    <p>- Vous pourrez donc la voir et la revoir</p>
+  </aside>
+</section>
+      
+        <section>
+          <h1>Part I </h1>
+          <h2>Flashback to United States presidential election 2016</h2>
+          <aside class="notes">
+            <small>
+            <p>2 ans s'est écoulé depuis l'évènement, je vous propose de commencer par un Flashback afin de nous remémorer ce qui s'est passé (puliquement)</p>
+            </small>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>Wednesday 16 March, 2016</h2>
+          <img src="img/2016-03-16.jpg" style="width:30%; border:0px;">
+          <p>WikiLeaks launched a <a href="https://wikileaks.org/clinton-emails/">searchable archive</a> for over 30 000 mails and attachments sent to and from Hillary Clinton's private email server while she was Secretary of State.</p>
+          <aside class="notes">
+            <p>En préambule, Ca commence par Hillary...</p>
+            <p>Focus sur l'outil de recherche</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Thursday 21 July, 2016</h2>
+          <img src="img/2016-07-21.jpg" style="width:50%; border:0px;">
+          <p>Donald Trump officially became the Republican Party’s presidential nominee during the Republican National Convention in Cleveland</p>
+          <aside class="notes">
+          <small>
+          <p>Juste pour resituer le contexte, Donald Trump est retenu pour représenter les républicains à l'élection présidentielle</p>
+          <p>Faite attention aux dates, les évènements s'enchainent rapidement !</p>
+          </small>
+          </aside>
+        </section>
+        
+        <section> 
+        
+          <section>
+            <h2>Friday 22 July, 2016</h2>
+            <img src="img/2016-07-22.jpg" style="width:30%; border:0px;">
+            <p>WikiLeaks release, in a <a href="https://wikileaks.org/dnc-emails/">database</a>, 19 252 emails from the US Democratic National Committee</p>
+            <p>Guccifer 2.0 claimed responsibility for a hacking on DNC</p>
+            <aside class="notes">
+              <small>
+              <p>Guccifer 2.0 car il y a eu un Guciffer 1.0...</p>
+              <p>Les mails révèlent des informations financières et des information personnelles sur les donateurs</p>
+              <p>Mais le plus important...</p>
+              </small>
+            </aside>
+          </section>
+        
+          <section>
+            <p>DNC staffers mocked the Bernie Sanders' campaign</p>
+            <img src="img/bernie-sanders.jpg" style="width:60%; border:0px;">
+            <p><a href="https://abcnews.go.com/Politics/damaging-emails-dnc-wikileaks-dump/story?id=40852448">The 4 Most Damaging Emails From the DNC WikiLeaks Dump</a></p>
+            <aside class="notes">
+            Le scandale s'enflamme avec les "moqueries" du DNC envers Sanders...
+            </aside>
+          </section>
+          
+          <section>
+            <p>B. Marshall wanted Bernie Sanders asked about God</p>
+              <div style="text-align: center; float: left; width:30%;">
+                <br>
+                <img src="img/Brad Marshall.jpg" style="width:100%; border:0px;"><br>
+                <small>Brad MARSHALL</small>
+              </div>
+              
+              <div style="text-align: right; float: right; width:70%;">
+              
+    <pre><code>From:MARSHALL@dnc.org
+To: MirandaL@dnc.org, PaustenbachM@dnc.org, 
+DaceyA@dnc.org 
+Date: 2016-05-05 03:31
+Subject: No shit
+_________________________________________________________
+
+It might may no difference, but for KY and WVA can we
+get someone to ask his belief. Does he believe in a God.
+He  had skated on saying he has a Jewish heritage. I 
+think I read he is an atheist. This could make several 
+points difference with my peeps. My Southern Baptist 
+peeps would draw a big difference between a Jew and an 
+atheist.</code></pre>            
+            </div>
+            <small><a href="https://wikileaks.org/dnc-emails/emailid/7643">https://wikileaks.org/dnc-emails/emailid/7643</a></small>
+            <aside class="notes">
+            Afin de saboter la campagne de Sanders, Brad Marshall (Chief Financial Officer) propose qu'un journaliste interroge Sanders sur sa religion.
+            Ce mail est adressé aux personnes en charge de la communication du parti.
+            </aside>
+          </section>
+          
+          <section>
+            <p>Debbie Wasserman Shultz called <br> Jeff Weaver a "damn liar" and a "scummy"</p>
+            <div style="text-align: center; float: left; width:20%;">
+              <img src="img/Debbie Wasserman Shultz.jpg" style="width:100%; border:0px;"><br>
+              <small>Debbie Wasserman Shultz</small>
+              <small><i>Chairman of the DNC</i></small>
+            </div>
+            <div style="text-align: center; float: right; width:80%;">
+            <img src="img/Mail2.png" style="width:80%; border:0px;"><br>
+            <small>
+            <a href="https://wikileaks.org/dnc-emails/emailid/5823">https://wikileaks.org/dnc-emails/emailid/5823</a><br>
+            <a href="https://wikileaks.org/dnc-emails/emailid/10817">https://wikileaks.org/dnc-emails/emailid/10817</a>
+            </small>
+            </div>
+            <aside class="notes">
+            Jeff Weaver est le directeur de campagne de Sanders.
+            </aside>
+          </section>
+          
+          <section>
+            <p>Lamentations that Sanders is not a democrat</p>
+            <div style="text-align: center; float: left; width:20%;">
+              <img src="img/Debbie Wasserman Shultz.jpg" style="width:100%; border:0px;"><br>
+              <small>Debbie Wasserman Shultz</small>
+            </div>
+            <div style="text-align: center; float: right; width:80%;">
+            <pre><code>From:hrtsleeve@gmail.com
+To: PaustenbachM@dnc.org 
+CC: MirandaL@dnc.org 
+Date: 2016-04-24 17:25
+Subject: Re: Politico - Sanders: Democratic Party hasn't been
+fair to me
+_________________________________________________________
+Spoken like someone who has never been a member of the 
+Democratic Party and has no understanding of what we do. 
+
+DWS</code></pre>
+            <small><a href="https://wikileaks.org/dnc-emails/emailid/5477">https://wikileaks.org/dnc-emails/emailid/5477</a></small>
+            </div>
+          </section>
+        
+          <section>
+            <p>Mark Paustenbach built a narrative to undermine Bernie</p>
+            <div style="text-align: center; float: left; width:20%;">
+              <img src="img/Mark Paustenbach.jpg" style="width:100%; border:0px;"><br>
+              <small>Mark Paustenbach</small>
+              <small>National press secretary for the DNC</small>
+            </div>
+            <div style="text-align: center; float: right; width:80%;">
+            <pre><code>From:markpaustenbach@gmail.com
+To: mirandal@dnc.org 
+Date: 2016-05-21 22:23
+Subject: Bernie narrative
+______________________________
+
+Wondering if there's a good Bernie narrative for a story, which 
+is that Bernie never ever had his act together, that his campaign 
+was a mess.
+
+Specifically, DWS had to call Bernie directly in order to get the 
+campaign to do things because they'd either ignored or forgotten 
+to something critical.
+
+She had to call Bernie after the data breach to make his staff to
+respond to our concerns. Even then they didn't get back to us, 
+which is why we had to shut off their access in order to get them 
+to finally let us know exactly how they snooped around HFA's data.
+
+Same was true with the standing committee appointments. They 
+never got back to us with their names (HFA and even O'Malley got 
+there's in six weeks earlier) for the committees. So, again, the 
+chair had to call Bernie personally for his staff to finally get 
+us critical information. So, they gave us an awful list just a 
+few days before we had to make the announcements.
+
+It's not a DNC conspiracy, it's because they never had their act 
+together.</code></pre>
+              <small><a href="https://wikileaks.org/dnc-emails/emailid/11056">https://wikileaks.org/dnc-emails/emailid/11056</a></small>
+            </div>
+          </section>
+        
+        </section>
+        
+        
+        <section>
+          <h2>Saturday 23 July, 2016</h2>
+          <br>
+          <p>Brad Marshall apologizes, on Facebook, for email on Sanders’ religion</p>
+          <br>
+          <pre><code>I deeply regret that my insensitive, emotional emails would cause embarrassment
+to the DNC, the Chairwoman, and all of the staffers who worked hard to make the 
+primary a fair and open process. The comments expressed do not reflect my 
+beliefs nor do they reflect the beliefs of the DNC and its employees. I 
+apologize to those I offended.</code></pre>
+        </section>
+        
+        <section>
+          <h2>Sunday 24 July, 2016</h2>
+          <img src="img/2016-07-24.jpg" style="width:50%; border:0px;">
+          <p>Debbie Wasserman Schultz resigned her position as chairperson of the DNC.</p>
+        </section>
+        
+        <section>
+          <h2>Monday 25 July, 2016</h2>
+          <img src="img/2016-07-25.jpg" style="width:50%; border:0px;">
+          <p>Hillary Clinton officially became the Democratic Party’s presidential nominee.</p>
+        </section>
+        
+        <section>
+          <h2>October 7, 2016</h2>
+          <img src="img/2016-10-07.png" style="width:40%; border:0px;">
+          <p>WikiLeaks has <a href="https://wikileaks.org/podesta-emails/">released more than 50 000 emails</a> stolen from the private email account of Hillary Clinton's campaign chairman, <b>John Podesta</b>.</p>
+          <aside class="notes">
+            <small>
+            <p>Comme si cela ne suffisait pas, ils se font tous avoir...</p>
+            <p>Revealed insights about the internal conflicts of the Clinton Foundation</p>
+            <p>One of the emails included Podesta's iCloud account password.</p>
+            </small>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>November 6, 2016</h2>
+          <img src="img/2016-11-06.jpg" style="width:40%; border:0px;">
+          <p>WikiLeaks released a second batch of DNC emails,<br> adding 8 263 emails to its collection.</p>
+          <aside class="notes">
+          <small>
+          <p>Ils ont toujours pas compris .... <p>
+          <p>même pas passer le mot entre collègues !!!!</p>
+          <p>Têtu comme un âne !</p>
+          </small>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>November 8, 2016</h2>
+          <img src="img/2016-11-08.jpg" style="width:60%; border:0px;">
+          <p>US Election Hillary Clinton Vs Donald Trump</p>
+          <aside class="notes">
+          </aside>
+        </section>
+        
+        <section>
+          <h2>January 20, 2017</h2>
+          <img src="img/2017-01-20.jpg" style="width:50%; border:0px;">
+          <p>Donald Trump's Inauguration Ceremony</p>
+          <aside class="notes">
+          ...
+          </aside>
+        </section>
+        
+        <!--   #######################################     -->
+        
+        <section>
+          <h1>Part 2<br>Bear vs Donkey</h1>
+        </section>
+        
+        <section>
+         <h2>Friday 13 july 2018</h2>
+         
+         <div style="text-align: center; float: left; width:20%;">
+            <img src="img/Robert Mueller.jpg" style="width:100%; border:0px;"><br>
+              <small>Robert Mueller</small>
+          </div>
+          <div style="text-align: left; float: right; width:80%;">
+         
+         <ul>
+          <li>Robert Mueller was Director of the FBI from 2001 to 2013.</li>
+          <li>Head of the Special Counsel investigation of Russian interference in the 2016 United States elections.</li>
+         </ul>
+         <br><br>
+         <ul>
+          <li>Mueller's <a href="https://www.justice.gov/file/1080281/download">indictment</a> details hacks on state election systems.</li>
+         </ul>
+         </div>
+          <aside class="notes">
+          <small>
+            <p>Robert Mueller est mandaté par Obama</p>
+            <p>Cette investigation est remis en cause par Trump car n'importe qui aurait pu réaliser cette attaque</p>
+            <p>Cette accusation concerne 12 espions russes... slide suivante</p>
+          </small>
+          </aside>
+         </section>
+         
+         <section>
+          <h2>12 Russian intelligence officers are Indicted</h2>
+          <small>
+          <ul>
+            <li><b>VIKTOR BORISOVICH NETYKSHO</b></li>
+            <li>BORIS ALEKSEYEVICH ANTONOV</li>
+            <li>DMITRIY SERGEYEVICH BADIN</li>
+            <li>IVAN SERGEYEVICHY ERMAKOV</li>
+            <li>ALEKSEY VIKTOROVICH LUKASHEV</li>
+            <li>SERGEY ALEKSANDROVICH MORGACHEV</li>
+            <li>NIKOLAY YURYEVICH KOZACHEK</li>
+            <li>PAVEL VYACHESLAVOVICH YERSHOV</li>
+            <li>ARTEM ANDREYEVICH MALYSHEV</li>
+            <li><b>ALEKSANDR VLADIMIROVICH OSADCHUK</b></li>
+            <li>ALEKSEY ALEKSANDROVICH POTEMKIN</li>
+            <li>ANATOLIY SERGEYEVICH KOVALEV</li>
+          </ul>
+          </small>
+          <aside class="notes">
+          Ces espions appartiennent à une organisation... slides suivant
+          </aside>
+         </section>
+         
+         <section> 
+          <h2>GRU</h2>
+          <p>a.k.a. Main Intelligence Directorate</p>
+          <br>
+          <div style="text-align: center; float: left; width:35%;">
+            <img src="img/gru.png" style="width:100%; border:0px;"><br>
+          </div>
+          <div style="text-align: center; float: right; width:65%;">
+            <ul>
+            <li>The GRU had multiple units engaged in cyber operations :</li>
+            <ul>
+              <li>Unit 26165 managed by VIKTOR BORISOVICH NETYKSHO</li>
+              <li>Unit 74455 managed by ALEKSANDR VLADIMIROVICH OSADCHUK</li>
+            </ul>
+            </ul>
+          </div>
+          <aside class="notes">
+          GRU équivaut à la NSA...
+          </aside>
+         </section>
+         
+         <section>
+          <h2>Fancy Bear</h2>
+          <p>a.k.a. APT28</p>
+           <div style="text-align: center; float: left; width:35%;">
+            <img src="img/FancyBear.png" style="width:100%; border:0px;"><br>
+          </div>
+          <div style="text-align: center; float: right; width:65%;">
+          <br><br>
+            <ul>
+              <li>A cyber espionage group</li>
+              <br>
+              <li>Could be associated with the Russian military intelligence agency (GRU)</li>
+            </ul>
+          </div>
+          <aside class="notes">
+           ce groupe de pirate est déjà connu pour son attaque sur TV5 Monde et le piratage des mails de Macron (6 mai 2017).
+          </aside>
+         </section>
+        
+        <section>
+          <h2>Operating mode</h2>
+          <p>Phase 1 - Spearphising</p>
+          <ul>
+            <li>Source:</li>
+            <ul>
+              <li>used the account <b>“john356gh”</b> at an online service</li>
+              <li>Russia-based email account <b>hi.mymail@yandex.com</b></li>
+            </ul>
+            <br>
+            <li>Spearphishing emails:</li>
+            <ul>
+              <li>Email look like <b>a security notification from Google</b> instructing the user to change his password by clicking the embedded link.</li>
+              <li>Link to <b>“hillary-clinton-favorable-rating.xlsx”</b> which redirected the recipients’ computers to a GRU-created website</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Operating mode</h2>
+          <p>Phase 2 - Malware</p>
+          <ul>
+            <li>X-Agent malware implanted on the DCCC network (keylogger and screenshot functions)</li>
+            <li>Information are transmitted to a GRU-leased server located in Arizona</li>
+            <li>"AMS panel" is an administration tool for "X-Agent"</li>
+            <li>Hacked into the DNC network from the DCCC network using stolen credentials</li>
+            <li>“X-Tunnel" is used to send documents outside the DCCC and DNC networks through encrypted channels</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+            <li>Ils ont scannés le réseau du DCCC pour identifier les failles (y compris les hébergements tiers)</li>
+            <li>Les serveurs GRU sont loués et payés en bitcoin</li>
+            <li>AMS Panel est l'outil de pilotage des X-Agent</li>
+            <li>Vous trouverez davantage de détail dans l'indictment...</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+          <h2>Conclusion</h2>
+          <br>
+          <ul>
+            <li>Alter the course of events in the U.S. by <b>manipulating public opinion<b></li>
+            <li><a href="https://www.sans.org/summit-archives/file/summit-archive-1492180875.pdf">Potential for False Flag Operations in the DNC Hack</a></li>
+          </ul>
+          <br><br>
+          <ul>
+            <li>Security awareness</li>
+            <li>Detect data leakage (Cyber Angel)</li>
+            <li>Get ready for data breach crisis communication</li>
+          </ul>
+        </section>
+              
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        multiplex: {
+          secret: '15122898107608741520',
+          id: '10676349eab4ac85',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+git add folder
+git config user.name "0xdbe"
+git config user.email firstname@lastname.net
+git commit -m "How Russia Hacks Democrats"
+git push -u origin master
+
+
+https://github.com/0xdbe
+http://0xdbe.github.io/

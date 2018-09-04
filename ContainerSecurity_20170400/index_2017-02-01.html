@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Container Security</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+      .FirstSlides{
+          /*width:100%;
+          height:100%;*/
+          width: 1280px;
+          height: 720px;
+          text-align: right;
+      }
+      .Title{
+        position:absolute;
+        width:100%;
+        top:25%;
+        background-color:rgba(0,0,0,0.5);
+        text-align: right;
+      }
+      .Footer{
+        text-align: right;
+        position:absolute;
+        bottom: 0;
+        width:100%;
+      }
+    </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			
+<!-- #################### Begin ####################-->
+
+<section data-state="header1" data-background="img/background.jpg">
+  <div class="FirstSlides">
+    <div class="Title">
+      <h1>Container Security</h1>
+      <h4>April XX<span class="ordinal">th</span>, 2017</h4>
+      <p><small>By Didier BERNAUDEAU</small></p>
+    </div>
+    <div class="Footer">
+      <p><a href='http://fr.123rf.com/profile_3dmentat' style="font-size:16px; color:#39453f">Picture Copyright: 3dmentat / 123RF</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Foreword</h2>
+  <br/>
+  <p>View online at <a href="http://0xdbe.github.io/ContainerOverview_20161208">https://git.io/XXXXX</a></p>
+  <br/>
+  <p>Keyboard Shortcuts</p>
+  <small>
+  <table>
+    <tr>
+      <td><b>Full Screen</b></td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <td><b>Next Slide</b></td>
+      <td>Space bar</td>
+    </tr>
+    <tr>
+      <td><b>Slide Notes</b></td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <td><b>Thumbnail View</b></td>
+      <td>Esc</td>
+    </tr>
+  </table>
+  </small>
+</section>
+
+<section>
+  <h2>Disclaimer</h2>
+  <p>This presentation is the result of my personal researches and experimentation.</p>
+  <p><b>I do not speak on behalf of my employer.</b> The information and perspective I present are personal and do not represent those of my employer.</p>
+  <br/>
+  <p>This presentation is published under a Creative Commons License (BY-NC-SA) except some photographs and graphic images protected by copyright.</p>
+</section>
+
+<section>
+  <h2>What is a container?</h2>
+  <br/>
+  <ul>
+    <span class="fragment fade-in">
+      <li>Lightweight VM</li>
+      <ul>
+        <li>Own network interface (with @IP and hostname)</li>
+        <li>Run processes as root</li>
+      </ul>
+    </span>
+    <br/>
+    <span class="fragment fade-in">
+      <li>Chroot on steroids</li>
+      <ul>
+        <li>Uses the host kernel</li>
+        <li>Can't boot a different OS</li>
+        <li>Just normal processes on the host machine</li>
+      </ul>
+    </span>
+  </ul>
+  <aside class="notes">
+    <p> - Il y a deux approches.</p>
+    <p> - Un container, c’est comme une machine virutelle allégée.</p>
+    <p> - Mais un container c’est qu’un chroot amélioré…</p>
+  </aside>
+</section>
+
+<section>
+  <h2>Agenda</h2>
+  <ol>
+    <li>Container Image</li>
+    <br>
+    <li>Container runtime</li>
+  </ol>
+</section>
+
+<!-- Container Image -->
+
+<section>
+
+  <section>
+    <h2>Container Image: Layers</h2>
+    <ul>
+      <li>OS layer</li>
+      <li>Middleware</li>
+      <li>Application</li>
+    </ul>
+    <p>No data in the container</li>
+  </section>
+
+  <section>
+    <h2>Container Image: Build and Publish</h2>
+    <ul>
+      <li>DevOps pipeline (Jenkins, ...)</li>
+      <li>Artifact Repository / Container Registry: push your image</li>
+      <li>Standard : AppC (from OCI)</li>
+      <li>Patch management!</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Container Image: Vulnerability Analysis</h2>
+    <ul>
+      <li>Clair Container Image Analyzer</li>
+      <li>...</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Container Image: Secret management</h2>
+    <ul>
+      <li>Hashicorp vault...</li>
+    </ul>
+  </section>
+  
+</section>
+
+
+<!-- PAAS with container -->
+
+<section>
+
+  <section>
+    <h2>2 - Container Runtime</h2>
+  </section>
+
+  <section>
+    <h2>Hardware</h2>
+    <p>Container doesn't use hardware virtualization technology.</p>
+    <ul>
+      <li>Virtualization instruction sets (VT-x or AMD-V)</li>
+      <li>Memory Address Translation (EPT or RVI)</li>
+      <li>IOMMU (VT-d or AMD-vi)</li>
+    </ul>
+    <p>These technologies are not used.</p>
+    <p>Except for Intel® Clear Containers but this project is still in progress</p>
+  </section>
+
+  <section>
+    <h2>Operating System</h2>
+    <ul>
+      <li>Secure boot</li>
+      <li>Secure update: FastPatch as a dual-partition scheme for the read-only part of its installation</li>
+      <li>SElinux with SVirt: each container in a unique SELinux context<li>
+      <li>Seccomp</li>
+    <ul>
+    CoreOS
+  </section>
+  
+  <section>
+    <h2>Control Groups</h2>
+  </section>
+  
+  <section>
+    <h2>Namespace</h2>
+    granted its own view of various operating system resources. 
+  </section>
+  
+  <section>
+    <h2>Network</h2>
+  </section>
+
+  <section>
+    <h2>Container Runtime</h2>
+  </section>
+
+  <section>
+    <h2>Container Cluster Manager</h2>
+  </section>
+
+</section>
+
+
+<section>
+  <section>
+    <h1>Appendix</h1>
+  </section>
+
+  <section>
+    <h2>Sources</h2>
+    <small>
+    <ul>
+    <li>Web sites</li>
+      <ul>
+        <li><a href="https://www.opencontainers.org/">Open Containers Initiative</a></li>
+        <li><a href="https://github.com/appc">App Container Specification and Tooling</a></li>
+      </ul>
+    <br>
+    <li>Articles</li>
+      <ul>
+        <li><a href="https://lwn.net/Articles/531114/">Namespaces overview.</a> (Michael Kerrisk - January 04, 2013)</li>
+        <li><a href="https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces">A Tutorial for Isolating Your System with Linux Namespaces</a> (Mahmud Ridwan - 2014)</li>
+        <li><a href="https://blog.appdynamics.com/devops/4-cluster-management-tools-to-compare/">4 Cluster Management Tools to Compare</a> (Anand Akela - May 05, 2016</li>
+        <li><a href="https://getcarina.com/docs/best-practices/container-technologies-orchestration-clusters/">Introduction to container technologies: orchestration and management of container clusters</a> (Mike Metral - October 18, 2015)</li>
+        </ul>
+    <br>
+    <li>Slides</li>
+      <ul>
+        <li><a href="http://www.slideshare.net/jpetazzo/anatomy-of-a-container-namespaces-cgroups-some-filesystem-magic-linuxcon">Anatomy of a Container</a> (Jérôme Petazzoni - August 19, 2015)</li>
+        <li><a href="http://www.slideshare.net/kerneltlv/namespaces-and-cgroups-the-basis-of-linux-containers">Namespaces and cgroups - the basis of Linux containers</a> (Rami Rosen - March 16, 2016)</li>
+      </ul>
+    <br>
+    <li>Video</li>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=sK5i-N34im8">Cgroups, namespaces, and beyond: what are containers made from?</a> (Jérôme Petazzoni - December 3, 2015)</li>
+      </ul>
+    <br>
+    <li>Audio</li>
+      <ul>
+        <li><a href="https://softwareengineeringdaily.com/2016/09/26/container-security-with-phil-estes/">Container Security</a> (Phil Estes - September 26, 2016)</li>
+      </ul>
+    </ul>
+  </small>
+  </section>
+</section>
+
+<!-- http://fr.123rf.com/photo_47638617_cg-a-rienne-tir-des-conteneurs-dans-l-oc-an.html -->
+
+<!-- #################### END ####################-->
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				slideNumber: true,
+        width: 1280,
+        height: 720,
+
+        // Plugin "Menu" : more information https://github.com/denehyg/reveal.js-menu
+				menu: {
+          markers: true,
+          openSlideNumber: true,
+          themes: false,
+          custom: false,
+				},
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+ 					{ src: 'plugin/menu/menu.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			Reveal.configure({ slideNumber: 'c/t' });
+		</script>
+	</body>
+</html>

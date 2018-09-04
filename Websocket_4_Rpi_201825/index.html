@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Websocket 4 Raspberry Pi</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+     <style>
+      .FirstSlides{
+          width: 1920px;
+          height: 1080px;
+      }
+      .Title{
+        position:absolute;
+        right:2%;
+        width:80%;
+        top:30%;
+        background-color:rgba(62,62,62,0.5);
+        text-align: right;
+      }
+    </style>
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+        <section data-state="header1">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h2>Websocket 4 Raspberry Pi</h1>
+              <h4>April 25<span class="ordinal">th</span>, 2018</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+        
+        <section> 
+          <h2>Motivation</h2>
+        </section>
+        
+        <section>
+          <h2>Websocket</h2>
+          <p>Maintain bidirectional communications with server-side processes</p>
+          <br>
+          <ul>
+            <li>Introduce in HTML 5 by W3C</li>
+            <li>HTTP protocol provides a special mechanism allowing an already established connection to upgrade to a new, incompatible, protocol.</li>
+            <li>http://website.com => ws://website.com</li>
+            <li>Websocket service: ws://echo.websocket.org</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>TLS rarement mis en place (wss://)</li>
+              <li>Authentication non maintenue lors du transfert de protocol</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+          <h1>Go ahead !!!</h1>
+        </section>
+        
+        <section>
+          <h2>Backend</h2>
+          <br>
+          <ul>
+            <li>Python (Rpi.GPIO)</li>
+            <li>Asynchronous programming (event loop, task, ...)</li>
+            <li>Python framework</li>
+            <ul>
+              <li>asyncio with aiohttp</li>
+              <li>gevent</li>
+              <li>Crossbar</li>
+              <li>Tornado</li>
+            </ul>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>Race Condition !!!</li>
+            </ul>
+          </aside>
+        </section>
+        
+        <section>
+
+         <pre class="python"><code>
+# Event websocket
+class WebSocketHandler(tornado.websocket.WebSocketHandler):
+
+  def open(self):
+    self.write_message("You are connected")
+
+  def on_message(self, message):
+    self.write_message(message)
+
+  def on_close(self):
+    print("Client disconnected")
+
+# Define route
+application = tornado.web.Application([
+    (r'/ws', WebSocketHandler),
+  ])
+  
+# Start loop
+if __name__ == '__main__':
+        http_server = tornado.httpserver.HTTPServer(application)
+        http_server.listen(8888,address='0.0.0.0')
+        tornado.ioloop.IOLoop.instance().start()
+    </code></pre>
+        </section>
+        
+        <section>
+          <p>but this is not so easy...</p>
+          <ul>
+            <li>Rpi.GPIO is not async !</li>
+            <li>GPIO interrupt in a dedicated thread</li>
+            <li>It can't send any message through websocket</li>
+          </ul>
+          <br>
+          <p>Workaround:<br>callback from thread to the async io loop</p>
+        </section>
+                
+        <section>
+          <h1>Front End</h1>
+        </section>
+        
+        <section>
+          <h2>Reactive web application</h2>
+            <p>Software design pattern:</p>        
+          <ul>
+              <li>Observer</li>
+              <li>Flux</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>MVC pattern (traditional)</h2>
+         <img src="img/mvc.jpg" style="width:50%; border:0px;">
+        </section>
+        
+        <section>
+          <h2>Observer pattern</h2>
+         <img src="img/observer.jpg" style="width:80%; border:0px;">
+         <p><i>Used by Angular with RxJS</i></p>
+         <aside class="notes">
+            <ul>
+              <li>Légèrement différent du Pub / Sub</li>
+              <li>Fonction de sécurité ?</li>
+            </ul>
+          </aside>
+        </section>
+        
+         <section>
+          <h2>Flux pattern</h2>
+            <img src="img/flux.jpg" style="width:70%; border:0px;">
+            <p><i>Used by React (Facebook) and Angular with NgRx Store</i></p>
+        </section>
+        
+        
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        
+        multiplex: {
+          secret: '15043360491328082451',
+          id: '8636505775e3da0d',
+          url: 'https://reveal.302.at'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

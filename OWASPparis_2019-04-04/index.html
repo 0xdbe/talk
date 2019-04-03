@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>OWASPparis_2019-04-04</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    
+    <style>
+  .FirstSlides{
+      width: 1280px;
+      height: 720px;
+  }
+  .Title{
+    position:absolute;
+    right:2%;
+    width:60%;
+    top:40%;
+    background-color:rgba(9,72,123,0.7);
+    text-align: right;
+  }
+  
+</style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+        <section data-background-image="img/background.jpg">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>OWASP Paris</h1>
+              <h4>April 4<span class="ordinal">th</span>, 2019</h4>
+            </div>
+          </div>
+          <aside class="notes">
+            <small>
+              Bonsoir à tous!
+              Tout d'abord bienvenue au tout premier Meetup de l'OWASP Paris!
+              
+            </small>
+          </aside>
+        </section>
+        
+        <section data-background-image="img/backgroundSlide.jpg">
+           <p>OWASP Paris, c'est quoi ? <br><i><small>Un événement organisé par l'OWASP France <br> (Yvan / Didier / Sébastien)</small></i></p>
+           <br>
+           <p class="fragment fade-in">Pourquoi Paris ? <br><i><small>L'événement sera toujours à Paris</small></i></p>
+          <aside class="notes">
+            <small>
+            <ul>
+                <li>C’est un événement organisé par l'OWASP France que Sébastien vous présentera juste après.</li>
+                <li>Parce que c'est à Paris. Si vous souhaitez créer une communauté dans une autre ville, venez nous en parler et ont vous aidera.<li>
+            </ul>
+            </small>
+          </aside>
+        </section>
+        
+        <section data-background-image="img/backgroundSlide.jpg">
+          <p>Pourquoi chez Octo ?</p>
+          <img src="img/Logo_OCTO_ACN_Corpo_White.png" style="width:40%; border:0px;">
+          <aside class="notes">
+            <small>
+            <ul>
+                <li>Chez Octo, la tribu AppSec trouvait anormale qu'il n'y ait pas d’événements owasp en france.</li>
+                <li>Du coup, on l'a fait et Octo sponsorise ce meetup en mettant à disposition la salle et le buffet.</li>
+                <li>Mais ce meetup n'est pas rattaché a OCTO et si vous souhaitez accueillir un des prochains meetup, n'hésitez à nous en faire part.</li>
+            </ul>
+            </small>
+          </aside>
+        </section>
+        
+        <section data-background-image="img/backgroundSlide.jpg">
+            <div>
+            <p>Quel est le but ?</p>
+            <small>
+            <ul>
+                <li><i>Réunir les personnes motivées par la sécurité applicative</i></li>
+                <li><i>Favoriser le partage de connaissances et l'échange de bonnes pratiques</i></li>
+            </ul>
+            </small>
+            </div>
+            <br>
+            <div class="fragment fade-in">
+            <p>Que fait-on à OWASP Paris ?</p>
+            <small>
+            <ul>
+                <li>19h: Lightning talk</li>
+                <li>20h: Workshop</li>
+                <li>21h30: Feedback</li>
+            </ul>
+            </small>
+            </div>
+          <aside class="notes">
+            <small>
+                <ul>
+                    <li>Ce meetup permet de créer une communauté réunissant les personnes motivées par la sécurité applicative.</li>
+                    <li>Ce meetup n'est pas réservé aux experts en sécurité informatique. Il est ouvert à tous et les développeurs sont évidemment les bienvenus.</li>
+                </ul>
+            </small>
+          </aside>
+        </section>
+        
+        <section data-background-image="img/backgroundSlide.jpg">
+
+        <div style="text-align: center; float: left; width:50%;">
+            <img src="img/wifi.png" style="width:50%; border:0px;">
+            <br>
+            <p>SSID: OctoWifiGuest</p>
+        </div>
+
+        <div style="text-align: center; float: right; width:50%;">
+            <br>
+            <img src="img/Twitter.jpg" style="width:30%; border:0px;">
+            <br>
+            <b>#AppSecParis</b>
+        </div>
+
+        </section>
+            
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        width: 1280,
+        height: 720,
+        multiplex: {
+          secret: '15543115442037107754',
+          id: 'ef4d9a9883672c88',
+          url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

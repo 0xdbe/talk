@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>IdentifierFirst_20200526</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+     <style>
+      .FirstSlides{
+          width: 1280px;
+          height: 720px;
+      }
+      .Title{
+        position:absolute;
+        right:2%;
+        width:90%;
+        top:40%;
+        background-color:rgba(13,13,13,0.5);
+        text-align: right;
+      }
+    </style>
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+      
+        <section data-state="header1">
+          <div class="FirstSlides">
+            <div class="Title">
+              <h1>Identifier First</h1>
+              <h4>May 20<span class="ordinal">th</span>, 2020</h4>
+              <p><small>By Didier BERNAUDEAU</small></p>
+            </div>
+          </div>
+        </section>
+      
+        <section>
+            <img src="img/identifier_first_google.png" style="width:50%; border:0px;">   
+        </section>
+        
+        <section>
+        
+         <h3>Customizing the user experience</h3>
+         <br>
+         <ul>
+           <li>if (identifier not found)</li>
+           <small>
+             <ul>
+              <li>Registration flow</li>
+              <li>signup form, email validation, ...)</li>
+             </ul>
+           </small>
+           <br/><br/>
+           <li>else</li>
+             <small>
+             <ul>
+               <li>Signin</li>
+               <li>Custom authentication flow</li>
+               <li>Password, 2SV, 2FA, ...)</li>
+             </ul>
+             </small> 
+         </ul>
+        </section>
+        
+        <section>
+        
+         <H3>Attack</H3>
+         <p>Account Enumeration</p>
+         <br>
+         <span class="fragment fade-in">
+         <h3>Security Control</h3>
+         <p>Generic message error wihout indication</p>
+         <small><i>(Wrong password or username doesn't exist, ...)</i></small>
+         </span>
+        </section>
+        
+        <section>
+         <h3>Additional Security Control</h3>
+         <br>
+          <ul>
+              <li>Bot Detection (captcha)</li>
+              <li>Throttling (rate limiting)</li>
+              <li>...</li>
+          </ul>
+         <p class="fragment fade-in"><b>But Account Enumeration already exist (Signup) !</b></p>
+        </section>
+        
+        <section>
+         <h3>Identifier Firt</h3>
+         <br>
+         <p>Pour ou Contre ?</p>
+        </section>
+        
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      var role = getParameterByName('role');
+      role = role === 'master' ? role : 'client';
+
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        multiplex: {
+          secret: '15905076736307788221',
+          id: '2c93925513dad88f',
+          url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh'
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'assets/lib/socket.io.min.js', async: true },
+          { src: 'plugin/multiplex/' + role + '.js', async: true },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
